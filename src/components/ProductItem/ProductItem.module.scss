@@ -4,12 +4,16 @@
     .root {
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
+        max-width: unset;
         width: 100%;
         gap: rem(30);
 
-        .pic {
-            width: rem(120);
-            height: rem(120);
+        .top {
+            width: fit-content;
+            .pic {
+                width: rem(120);
+                height: rem(120);
+            }
         }
 
         .text {
@@ -32,18 +36,25 @@
     .root {
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
+        max-width: unset;
         gap: rem(30);
 
-        .pic {
-            width: rem(60);
-            height: rem(60);
+        .top {
+            .pic {
+                width: rem(60);
+                height: rem(60);
+            }
         }
 
         .text {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             width: 100%;
+            height: 100%;
+
+            .productName {
+                font-size: rem(16);
+            }
         }
 
         .buy {
@@ -68,7 +79,7 @@
     width: 100%;
     gap: rem(15);
     text-align: center;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 
     &:hover {
         transform: scale(1.03);

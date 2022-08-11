@@ -1,6 +1,6 @@
 @use '../../sass/util/' as *;
 
-.search {
+.root {
     position: relative;
     border: rem(1) solid var(--border);
     width: rem(610);
@@ -42,8 +42,10 @@
     }
 
     .searchProductItems {
+        display: grid;
         position: absolute;
         width: 100%;
+        gap: rem(15);
         padding: rem(20);
         background-color: var(--white-color);
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);

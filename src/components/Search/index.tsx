@@ -65,7 +65,7 @@ export const Search: React.FC = () => {
     const skeletons = [...new Array(6)].map((_, i: number) => <SkeletonSearch key={i} />);
 
     return (
-        <div className={styles.search} ref={searchRef}>
+        <div className={styles.root} ref={searchRef}>
             <input
                 ref={inputRef}
                 onClick={() => setOpen(true)}

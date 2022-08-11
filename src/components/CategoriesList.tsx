@@ -30,7 +30,7 @@ export const CategoriesList: React.FC = () => {
 
     const categories = categoriesList.map((value, i) => (
         <Link
-            to={`shop/productData?category=${value}`}
+            to={`shop?category=${value}`}
             key={i}
             onClick={() => onChangeCategory(value)}
             className={categoryType === value ? 'active' : ''}>
