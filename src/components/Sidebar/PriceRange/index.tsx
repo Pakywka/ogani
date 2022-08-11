@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider from 'rc-slider';
+import Slider from '../../PriceSlider';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilter } from '../../../redux/filter/selectors';
 import { PriceRange } from '../../../redux/filter/types';
