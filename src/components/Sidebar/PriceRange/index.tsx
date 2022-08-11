@@ -45,14 +45,14 @@ export const PriceRangeBlock: React.FC = () => {
                     className={styles.slider}
                     value={priceRange.minPrice}
                     marks={marks}
-                    onChange={(minPrice) => onChangeMinPrice(minPrice)}
+                    onChange={(minPrice: number) => onChangeMinPrice(minPrice)}
                 />
                 <label>{`до ${maxValue}`}</label>
                 <Slider
                     className={styles.slider}
                     value={priceRange.maxPrice}
                     marks={marks}
-                    onChange={(maxPrice) => onChangeMaxPrice(maxPrice)}
+                    onChange={(maxPrice: number) => onChangeMaxPrice(maxPrice)}
                 />
 
                 <div className={styles.inputs}>
