@@ -19,7 +19,7 @@ export const PriceRangeBlock: React.FC = () => {
     const [minValue, setMinValue] = React.useState(priceRange.minPrice);
     const [maxValue, setMaxValue] = React.useState(priceRange.maxPrice);
 
-    const onChangeMinPrice = (minPrice: PriceRange['minPrice']) => {
+    const onChangeMinPrice = (minPrice: number) => {
         dispatch(setMinPrice(minPrice));
         setMinValue(minPrice);
     };
@@ -45,7 +45,7 @@ export const PriceRangeBlock: React.FC = () => {
                     className={styles.slider}
                     value={priceRange.minPrice}
                     marks={marks}
-                    onChange={(minPrice: number) => onChangeMinPrice(minPrice)}
+                    onChange={(minPrice) => onChangeMinPrice(minPrice)}
                 />
                 <label>{`до ${maxValue}`}</label>
                 <Slider
