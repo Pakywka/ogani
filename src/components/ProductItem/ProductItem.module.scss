@@ -68,6 +68,11 @@
     width: 100%;
     gap: rem(15);
     text-align: center;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.03);
+    }
 
     @include breakpoint-down(small) {
         margin: 0 auto;
