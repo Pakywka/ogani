@@ -3,6 +3,7 @@ import type { HandlesProps } from 'rc-slider/lib/Handles';
 import type { AriaValueFormat } from 'rc-slider/lib/interface';
 import type { MarkObj } from 'rc-slider/lib/Marks';
 import styles from './PriceSlider.module.scss';
+import { PriceRange } from '../../redux/filter/types';
 /**
  * New:
  * - click mark to update range value
@@ -16,7 +17,7 @@ import styles from './PriceSlider.module.scss';
  * - Change range should not trigger onChange
  * - keyboard support pushable
  */
-export interface SliderProps<ValueType = number | number[]> {
+export interface SliderProps<ValueType = PriceRange['minPrice'] | PriceRange['maxPrice']> {
     prefixCls?: string;
     className?: string;
     style?: React.CSSProperties;
@@ -62,5 +63,5 @@ export interface SliderRef {
     blur: () => void;
 }
 export declare const PriceSlider: React.ForwardRefExoticComponent<
-    SliderProps<number | number[]> & React.RefAttributes<SliderRef>
+    SliderProps<PriceRange['minPrice'] | PriceRange['maxPrice']> & React.RefAttributes<SliderRef>
 >;
