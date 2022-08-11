@@ -1,11 +1,12 @@
 import React from 'react';
-import Slider from '../../PriceSlider';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilter } from '../../../redux/filter/selectors';
 import { PriceRange } from '../../../redux/filter/types';
 import { setMaxPrice, setMinPrice } from '../../../redux/filter/slice';
 
 import styles from './PriceRange.module.scss';
+import PriceSlider from '../../PriceSlider';
+import Slider from 'rc-slider';
 
 const marks = {
     '0': '0',
@@ -46,14 +47,14 @@ export const PriceRangeBlock: React.FC = () => {
                     className={styles.slider}
                     value={priceRange.minPrice}
                     marks={marks}
-                    onChange={(minPrice) => onChangeMinPrice(minPrice)}
+                    onChange={(minPrice: PriceRange['minPrice']) => onChangeMinPrice(minPrice)}
                 />
                 <label>{`до ${maxValue}`}</label>
                 <Slider
                     className={styles.slider}
                     value={priceRange.maxPrice}
                     marks={marks}
-                    onChange={(maxPrice) => onChangeMaxPrice(maxPrice)}
+                    onChange={(maxPrice: PriceRange['maxPrice']) => onChangeMaxPrice(maxPrice)}
                 />
 
                 <div className={styles.inputs}>

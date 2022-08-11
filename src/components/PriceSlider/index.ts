@@ -62,7 +62,7 @@ export interface SliderRef {
     focus: () => void;
     blur: () => void;
 }
-declare const PriceSlider: React.ForwardRefExoticComponent<
+export declare const PriceSlider: React.ForwardRefExoticComponent<
     SliderProps<PriceRange['minPrice'] | PriceRange['maxPrice']> & React.RefAttributes<SliderRef>
 >;
 
