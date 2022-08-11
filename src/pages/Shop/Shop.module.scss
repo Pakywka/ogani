@@ -1,0 +1,104 @@
+@use '../../sass/util' as *;
+
+.root {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: rem(30);
+
+    @include breakpoint-down(large) {
+        grid-template-columns: 4.2fr 5.8fr;
+    }
+
+    @include breakpoint-down(medium) {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        display: grid;
+        .productDiscount {
+            h2 {
+                display: inline-block;
+                text-align: left;
+
+                &::after {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+
+            .discountItems {
+                position: relative;
+                margin-bottom: rem(50);
+                gap: rem(30);
+
+                :global {
+                    .swiper {
+                        padding-bottom: rem(60);
+                    }
+                }
+            }
+        }
+
+        .product__wrapper {
+            padding: rem(45) 0;
+            border-top: rem(1) solid var(--border);
+
+            .filter {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: rem(15);
+                margin-bottom: rem(40);
+
+                @include breakpoint-down(medium) {
+                    flex-direction: column;
+                }
+
+                &__sort {
+                    span {
+                        color: var(--para-color);
+                    }
+                }
+                &__found {
+                    span {
+                        margin-right: rem(5);
+                        font-weight: 700;
+                        color: var(--normal-color);
+                    }
+                    h6 {
+                        color: var(--transparent-color);
+                    }
+                }
+                &__option {
+                    display: flex;
+                    gap: rem(10);
+
+                    :global {
+                        .view-btn {
+                            font-size: rem(24);
+                            color: var(--transparent-color);
+                            cursor: pointer;
+                            transition: all, 0.3s;
+
+                            &:hover {
+                                color: var(--primary-color);
+                            }
+
+                            &.active {
+                                color: var(--primary-color);
+                            }
+                        }
+                    }
+                }
+            }
+            .productItems.view-simple {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .discountItems,
+        .productItems {
+            display: grid;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@use '../../sass/util' as *;
+
+@include breakpoint-down(xlarge) {
+    .root {
+        width: rem(210);
+    }
+}
+
+@include breakpoint-down(medium) {
+    .root {
+        width: rem(240);
+    }
+}
+
+@include breakpoint-down(small) {
+    .root {
+        width: rem(270);
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,245 @@
+@use '../../sass/util' as *;
+
+:global {
+    .checkout {
+        padding-top: rem(80);
+        padding-bottom: rem(60);
+
+        h6 {
+            color: var(--para-color);
+            text-align: center;
+            background: var(--background);
+            border-top: 1px solid var(--primary-color);
+            padding: em(12) 0 em(12);
+            margin-bottom: rem(75);
+
+            span {
+                font-size: rem(16);
+                color: var(--primary-color);
+                margin-right: rem(5);
+            }
+
+            a {
+                text-decoration: underline;
+                color: var(--para-color);
+            }
+        }
+
+        &__details {
+            h4 {
+                color: var(--normal-color);
+                font-weight: 700;
+                border-bottom: 1px solid var(--border-1);
+                padding-bottom: rem(20);
+                margin-bottom: rem(25);
+            }
+
+            p {
+                column-rule: var(--border);
+            }
+
+            form {
+                .form__wrapper {
+                    display: flex;
+                    gap: rem(30);
+
+                    @include breakpoint-down(medium) {
+                        flex-wrap: wrap;
+                    }
+
+                    .checkout__form {
+                        display: grid;
+                        gap: rem(24);
+                        flex: 0 0 66%;
+
+                        .input__wrapper {
+                            display: flex;
+                            gap: rem(30);
+
+                            .checkout__input {
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    .checkout__input {
+                        p {
+                            color: var(--normal-color);
+                            margin-bottom: rem(12);
+
+                            span {
+                                color: var(--discount);
+                            }
+                        }
+
+                        input {
+                            width: 100%;
+                            height: rem(46);
+                            border: 1px solid var(--border);
+                            padding-left: rem(20);
+                            font-size: rem(16);
+                            color: var(--transparent-color);
+                            border-radius: 4px;
+
+                            &.checkout__input__add {
+                                margin-bottom: rem(20);
+                            }
+
+                            &::placeholder {
+                                color: var(--transparent-color);
+                            }
+                        }
+                    }
+
+                    .checkout__input__checkbox {
+                        margin-bottom: rem(10);
+
+                        label {
+                            position: relative;
+                            font-size: rem(16);
+                            color: var(--normal-color);
+                            padding-left: rem(40);
+                            cursor: pointer;
+
+                            input {
+                                position: absolute;
+                                visibility: hidden;
+
+                                &:checked {
+                                    & ~ .checkmark {
+                                        background: var(--primary-color);
+                                        border-color: var(--primary-color);
+
+                                        &:after {
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .checkmark {
+                                position: absolute;
+                                left: 0;
+                                top: 4px;
+                                height: rem(16);
+                                width: rem(14);
+                                border: 1px solid hsl(0, 0%, 65%);
+                                content: '';
+                                border-radius: 4px;
+
+                                &:after {
+                                    position: absolute;
+                                    left: 1px;
+                                    top: 1px;
+                                    width: rem(10);
+                                    height: rem(8);
+                                    border: solid white;
+                                    border-width: 3px 3px 0px 0px;
+                                    -webkit-transform: rotate(127deg);
+                                    -ms-transform: rotate(127deg);
+                                    transform: rotate(127deg);
+                                    content: '';
+                                    opacity: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .checkout__order {
+                        flex: 0 0 34%;
+                        background: var(--background);
+                        height: fit-content;
+                        padding: rem(30) rem(40) rem(40);
+
+                        h4 {
+                            color: var(--normal-color);
+                            font-weight: 700;
+                            border-bottom: 1px solid var(--border-1);
+                            padding-bottom: rem(20);
+                            margin-bottom: rem(20);
+                        }
+
+                        .checkout__order__products {
+                            font-size: 18px;
+                            color: var(--normal-color);
+                            font-weight: 700;
+                            margin-bottom: rem(10);
+
+                            span {
+                                float: right;
+                            }
+                        }
+
+                        ul {
+                            margin-bottom: rem(12);
+
+                            li {
+                                font-size: rem(16);
+                                color: var(--para-color);
+                                line-height: rem(40);
+                                list-style: none;
+
+                                span {
+                                    font-weight: 700;
+                                    float: right;
+                                }
+                            }
+                        }
+
+                        .checkout__order__subtotal {
+                            font-size: rem(18);
+                            color: var(--normal-color);
+                            font-weight: 700;
+                            border-bottom: 1px solid var(--border-1);
+                            border-top: 1px solid var(--border-1);
+                            padding: rem(15) 0;
+                            margin-bottom: rem(15);
+
+                            span {
+                                float: right;
+                            }
+                        }
+
+                        .checkout__input__checkbox {
+                            label {
+                                padding-left: rem(20);
+                            }
+                        }
+
+                        .checkout__order__total {
+                            font-size: rem(18);
+                            color: var(--normal-color);
+                            font-weight: 700;
+                            border-bottom: 1px solid var(--border-1);
+                            padding-bottom: rem(15);
+                            margin-bottom: rem(25);
+
+                            span {
+                                float: right;
+                                color: var(--discount);
+                            }
+                        }
+
+                        button {
+                            font-size: rem(18);
+                            letter-spacing: 2px;
+                            width: 100%;
+                            margin-top: rem(10);
+                        }
+                    }
+
+                    .checkout__form,
+                    .checkout__order {
+                        @include breakpoint-down(large) {
+                            flex: 0 0 50%;
+                        }
+
+                        @include breakpoint-down(medium) {
+                            flex: 0 0 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

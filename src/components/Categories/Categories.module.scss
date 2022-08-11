@@ -1,0 +1,45 @@
+@use '../../sass/util' as *;
+
+.root {
+    ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: rem(25);
+
+        @include breakpoint-down(small) {
+            flex-wrap: nowrap;
+            overflow: auto;
+            justify-content: start;
+        }
+
+        li {
+            position: relative;
+            padding: 0 em(14);
+            font-size: rem(16);
+            background-color: var(--background-2);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            white-space: nowrap;
+
+            &:global(.active) {
+                color: var(--white-color);
+                background-color: var(--primary-color);
+            }
+
+            &::after {
+                position: absolute;
+                left: 0;
+                bottom: rem(-5);
+                width: 100%;
+                height: rem(2);
+                background-color: var(--primary-color);
+                content: '';
+                opacity: 0;
+            }
+            .active {
+                opacity: 1;
+            }
+        }
+    }
+}

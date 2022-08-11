@@ -1,0 +1,62 @@
+@use '../../../sass/util' as *;
+
+.root {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    width: rem(270);
+    height: rem(50);
+    padding: rem(10) rem(25) rem(10) rem(40);
+    cursor: pointer;
+
+    @include breakpoint-down(xlarge) {
+        width: rem(210);
+        padding: rem(10) rem(25);
+    }
+
+    @include breakpoint-down(large) {
+        width: 100%;
+        padding: rem(10) rem(25);
+    }
+
+    &::after {
+        position: absolute;
+        right: rem(18);
+        top: rem(15);
+        content: '3';
+        font-family: 'ElegantIcons';
+        font-size: rem(18);
+        color: var(--white-color);
+    }
+
+    i {
+        padding-right: rem(10);
+    }
+
+    span {
+        font-size: rem(18);
+        font-weight: 700;
+    }
+
+    .categoriesList {
+        position: absolute;
+        display: grid;
+        gap: rem(5);
+        top: rem(50);
+        left: 0;
+        width: 100%;
+        padding: rem(10) 0 rem(12) rem(40);
+        z-index: 9;
+        background-color: var(--white-color);
+        color: var(--normal-color);
+        border: rem(1) solid var(--border);
+        cursor: initial;
+
+        li {
+            line-height: rem(35);
+            cursor: pointer;
+        }
+    }
+}

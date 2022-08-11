@@ -1,0 +1,22 @@
+@use '../../../sass/util' as *;
+
+.root {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+    position: relative;
+
+    ul {
+        display: grid;
+        gap: rem(7);
+        position: absolute;
+        left: 0;
+        top: rem(20);
+        width: rem(100);
+        padding: rem(5);
+        color: var(--white-color);
+        background-color: hsl(0, 0%, 13%);
+        text-align: left;
+        z-index: 9;
+    }
+}

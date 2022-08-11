@@ -1,0 +1,35 @@
+@use '../../sass/util' as *;
+
+:global .selected {
+    background-color: var(--primary-color);
+
+    a {
+        color: var(--white-color) !important;
+    }
+}
+
+.root {
+    display: flex;
+    gap: rem(15);
+    padding-top: rem(50);
+
+    a {
+        display: block;
+        width: rem(30);
+        height: rem(30);
+        font-size: rem(14);
+        font-weight: 700;
+        line-height: rem(28);
+        text-align: center;
+        color: var(--transparent-color);
+        border: rem(1) solid var(--border);
+        transition: all, 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white-color);
+        }
+    }
+}

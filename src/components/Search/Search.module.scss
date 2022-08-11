@@ -1,0 +1,52 @@
+@use '../../sass/util/' as *;
+
+.search {
+    position: relative;
+    border: rem(1) solid var(--border);
+    width: rem(610);
+
+    @include breakpoint-down(xlarge) {
+        width: rem(470);
+    }
+
+    @include breakpoint-down(medium) {
+        width: 100%;
+    }
+
+    input {
+        width: 80%;
+        height: rem(50);
+        padding: rem(20);
+        border: none;
+    }
+
+    .clearIcon {
+        position: absolute;
+        top: rem(15);
+        right: rem(130);
+        width: rem(18);
+        height: rem(18);
+        opacity: 0.3;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .searchBtn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: rem(50);
+    }
+
+    .searchProductItems {
+        position: absolute;
+        width: 100%;
+        padding: rem(20);
+        background-color: var(--white-color);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+        z-index: 999;
+    }
+}

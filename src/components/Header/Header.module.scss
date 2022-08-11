@@ -1,0 +1,16 @@
+@use '../../sass/util' as *;
+
+.root {
+    position: relative;
+    .overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: hsla(0, 0%, 0%, 0.5);
+        content: '';
+        z-index: 98;
+        transition: all, 0.6s;
+    }
+}

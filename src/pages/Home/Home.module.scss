@@ -1,0 +1,100 @@
+@use '../../sass/util' as *;
+
+.root {
+    display: grid;
+    gap: rem(50);
+    text-align: center;
+
+    .bannerHead {
+        display: flex;
+        align-items: center;
+        background-image: url('../../img/hero/banner.jpg');
+        height: rem(430);
+        padding-left: rem(75);
+
+        @include breakpoint-down(small) {
+            justify-content: center;
+            padding: 0;
+        }
+
+        .banner__content {
+            max-width: rem(300);
+            text-align: left;
+
+            @include breakpoint-down(small) {
+                text-align: center;
+            }
+            span {
+                font-size: rem(14);
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: rem(4);
+                color: var(--primary-color);
+            }
+            h2 {
+                font-size: rem(46);
+                margin: rem(10) 0;
+            }
+            p {
+                margin-bottom: rem(35);
+            }
+        }
+    }
+
+    .featured {
+        overflow: hidden;
+    }
+
+    .productItems {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(50) rem(30);
+        margin-top: rem(50);
+
+        @include breakpoint-down(large) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include breakpoint-down(medium) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include breakpoint-down(small) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: rem(50) rem(15);
+        }
+    }
+
+    .banners {
+        display: flex;
+        gap: rem(30);
+
+        @include breakpoint-down(medium) {
+            flex-wrap: wrap;
+        }
+
+        .banner {
+            width: 100%;
+            height: rem(270);
+            background-size: cover;
+            background-position-y: center;
+
+            @include breakpoint-down(large) {
+                height: rem(150);
+            }
+        }
+        .banner:first-child {
+            background-image: url('../../img/banner/banner-1.jpg');
+        }
+        .banner:nth-child(2) {
+            background-image: url('../../img/banner/banner-2.jpg');
+        }
+    }
+
+    .blogItems {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: rem(30);
+    }
+}

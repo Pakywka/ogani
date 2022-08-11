@@ -1,0 +1,63 @@
+@use '../../../sass/util' as *;
+
+.root {
+    display: flex;
+    align-items: center;
+    gap: rem(50);
+    @include breakpoint-down(large) {
+        display: grid;
+        gap: 0;
+    }
+
+    .item {
+        position: relative;
+
+        &:hover .link {
+            color: var(--primary-color);
+        }
+
+        .link {
+            @include breakpoint(large) {
+                font-size: rem(14);
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: rem(2);
+                @include transition(all, 0.3s);
+                padding: rem(5) 0;
+            }
+        }
+    }
+
+    .dropDownMobile {
+        @include breakpoint(large) {
+            display: none;
+        }
+    }
+
+    .pages {
+        position: relative;
+
+        @include breakpoint-down(large) {
+            display: none !important;
+        }
+
+        &:hover {
+            .dropDownDesktop {
+                display: block;
+            }
+        }
+    }
+
+    .dropDownDesktop {
+        display: none;
+        position: absolute;
+        top: rem(20);
+        left: 0;
+        width: rem(180);
+        padding: rem(5) 0;
+        background-color: hsl(0, 0%, 13%);
+        color: var(--white-color);
+        z-index: 9;
+        @include transition(all, 0.3s);
+    }
+}

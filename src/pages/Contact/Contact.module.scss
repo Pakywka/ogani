@@ -1,0 +1,106 @@
+@use '../../sass/util' as *;
+
+.root {
+    text-align: center;
+    padding-top: rem(80);
+    padding-bottom: rem(50);
+
+    .contact__wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(30);
+        margin-bottom: rem(30);
+
+        @include breakpoint-down(medium) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+.contact__widget {
+    span {
+        font-size: rem(36);
+        color: var(--primary-color);
+    }
+
+    h4 {
+        color: var(--normal-color);
+        font-weight: 700;
+        margin-bottom: rem(6);
+        margin-top: rem(18);
+    }
+
+    p {
+        color: var(--para-color);
+        margin-bottom: 0;
+    }
+}
+
+:global {
+    .map {
+        height: rem(500);
+        position: relative;
+
+        iframe {
+            width: 100%;
+        }
+    }
+
+    .map .map-inside {
+        position: absolute;
+        left: 50%;
+        top: rem(160);
+        -webkit-transform: translateX(-175px);
+        -ms-transform: translateX(-175px);
+        transform: translateX(-175px);
+    }
+
+    .map .map-inside i {
+        font-size: rem(48);
+        color: var(--primary-color);
+        position: absolute;
+        bottom: rem(-75);
+        left: 50%;
+        -webkit-transform: translateX(-18px);
+        -ms-transform: translateX(-18px);
+        transform: translateX(-18px);
+    }
+
+    .map .map-inside .inside-widget {
+        width: rem(350);
+        background: var(--white-color);
+        text-align: center;
+        padding: rem(23) 0;
+        position: relative;
+        z-index: 1;
+        -webkit-box-shadow: 0 0 20px 5px rgba(12, 7, 26, 0.15);
+        box-shadow: 0 0 20px 5px rgba(12, 7, 26, 0.15);
+    }
+
+    .map .map-inside .inside-widget:after {
+        position: absolute;
+        left: 50%;
+        bottom: rem(-30);
+        -webkit-transform: translateX(-6px);
+        -ms-transform: translateX(-6px);
+        transform: translateX(-6px);
+        border: rem(12) solid transparent;
+        border-top: rem(30) solid var(--white-color);
+        content: '';
+        z-index: -1;
+    }
+
+    .map .map-inside .inside-widget h4 {
+        font-size: rem(22);
+        font-weight: 700;
+        color: var(--normal-color);
+        margin-bottom: rem(4);
+    }
+
+    .map .map-inside .inside-widget ul li {
+        list-style: none;
+        font-size: rem(16);
+        color: var(--para-color);
+        line-height: rem(26);
+    }
+}

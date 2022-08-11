@@ -1,0 +1,25 @@
+@use '../../../sass/util' as *;
+
+.root {
+    position: relative;
+    width: 100%;
+    @include breakpoint-down(small) {
+        margin: 0 auto;
+        max-width: rem(140);
+    }
+
+    .discountAmount {
+        position: absolute;
+        left: rem(15);
+        top: rem(15);
+        height: rem(45);
+        width: rem(45);
+        background: var(--discount);
+        border-radius: 50%;
+        font-size: rem(14);
+        color: var(--white-color);
+        line-height: rem(45);
+        text-align: center;
+        z-index: 1;
+    }
+}

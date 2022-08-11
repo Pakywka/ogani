@@ -1,0 +1,7 @@
+@use '../../sass/util' as *;
+
+.blogitems__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(60) rem(30);
+}

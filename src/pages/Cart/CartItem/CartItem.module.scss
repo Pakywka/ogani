@@ -1,0 +1,80 @@
+@use '../../../sass/util' as *;
+
+.root {
+    display: grid;
+    grid-template-columns: 6fr 1fr 1.5fr 1fr 0.2fr;
+    position: relative;
+    align-items: center;
+    gap: rem(20);
+    padding: rem(30) 0;
+    border-bottom: rem(1) solid var(--border);
+    text-align: center;
+
+    @include breakpoint-down(medium) {
+        grid-template-columns: 5fr 1fr 3fr 1fr 0.2fr;
+    }
+
+    .product {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: rem(25);
+        text-align: left;
+
+        .productImage {
+            width: rem(100);
+            height: rem(100);
+        }
+
+        h6 {
+            font-size: rem(18);
+        }
+
+        @include breakpoint-down(medium) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    .price {
+        font-size: rem(18);
+        font-weight: 700;
+        color: var(--normal-color);
+    }
+    .quantity {
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr;
+
+        height: rem(50);
+        position: relative;
+        text-align: center;
+        background: var(--background);
+
+        input {
+            width: 100%;
+            background-color: var(--background);
+            text-align: center;
+            font-size: rem(16);
+            color: var(--para-color);
+            border: none;
+        }
+    }
+    .total {
+        font-size: rem(18);
+        font-weight: 700;
+        color: var(--normal-color);
+    }
+
+    .close {
+        display: flex;
+
+        text-align: right;
+
+        .iconClose {
+            width: rem(18);
+            height: rem(18);
+            fill: var(--transparent-color);
+            cursor: pointer;
+        }
+    }
+}

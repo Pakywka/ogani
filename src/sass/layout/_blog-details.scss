@@ -1,0 +1,178 @@
+@use '../util/' as *;
+
+.blog-details {
+    padding-bottom: rem(75);
+    border-bottom: 1px solid var(--border-1);
+
+    .blog__sidebar {
+        flex: 0 0 34%;
+
+        @include breakpoint-down(large) {
+            flex: 0 0 42%;
+        }
+    }
+
+    .blog-details__content {
+        flex: 0 0 66%;
+
+        @include breakpoint-down(large) {
+            flex: 0 0 58%;
+        }
+
+        .blog__details__text {
+            margin-bottom: 45px;
+
+            img {
+                margin-bottom: 30px;
+            }
+
+            p {
+                font-size: 18px;
+                line-height: 30px;
+            }
+
+            h3 {
+                color: var(--heading-color);
+                font-weight: 700;
+                line-height: 30px;
+                margin-bottom: 30px;
+            }
+        }
+
+        .blog__details__content {
+            display: flex;
+            gap: rem(30);
+
+            .blog__details__author {
+                &__pic {
+                    float: left;
+                    margin-right: 15px;
+
+                    img {
+                        height: 92px;
+                        width: 92px;
+                        border-radius: 50%;
+                    }
+                }
+
+                &__text {
+                    overflow: hidden;
+                    padding-top: 30px;
+
+                    h6 {
+                        color: var(--normal-color);
+                        font-weight: 700;
+                    }
+
+                    span {
+                        font-size: 16px;
+                        color: var(--para-color);
+                    }
+                }
+            }
+
+            .blog__details__widget {
+                ul {
+                    margin-bottom: 5px;
+
+                    li {
+                        font-size: 16px;
+                        color: var(--para-color);
+                        list-style: none;
+                        line-height: 30px;
+
+                        span {
+                            color: var(--normal-color);
+                            font-weight: 700;
+                        }
+                    }
+                }
+
+                .blog__details__social {
+                    a {
+                        display: inline-block;
+                        font-size: 20px;
+                        color: var(--para-color);
+                        margin-right: 24px;
+                        @include transition(all, 0.3s);
+
+                        &:hover {
+                            color: var(--primary-color);
+                        }
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .blog__sidebar,
+    .blog-details__content {
+        @include breakpoint-down(medium) {
+            flex: 0 0 100%;
+        }
+    }
+
+    .blog-details-hero {
+        height: 350px;
+        display: flex;
+        align-items: center;
+    }
+
+    .blog__details__hero__text {
+        text-align: center;
+
+        h2 {
+            font-size: 46px;
+            color: var(--white-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            li {
+                font-size: 16px;
+                color: var(--white-color);
+                list-style: none;
+                display: inline-block;
+                margin-right: 45px;
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    right: -26px;
+                    top: 0;
+                    content: '|';
+                }
+
+                &:last-child {
+                    margin-right: 0;
+
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.related-blog {
+    padding-top: 70px;
+    padding-bottom: 10px;
+
+    &-title {
+        margin-bottom: 70px;
+    }
+
+    .posts__wrapper {
+        display: flex;
+        justify-content: center;
+        gap: rem(30);
+        flex-wrap: wrap;
+        margin-bottom: rem(30);
+    }
+}

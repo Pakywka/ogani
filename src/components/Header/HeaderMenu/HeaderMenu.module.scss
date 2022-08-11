@@ -1,0 +1,134 @@
+@use '../../../sass/util' as *;
+
+.top {
+    height: rem(47);
+    background-color: var(--background);
+    font-size: rem(14);
+
+    @include breakpoint-down(large) {
+        display: none;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+
+        .contact {
+            display: flex;
+            gap: rem(45);
+
+            i {
+                margin-right: rem(5);
+            }
+        }
+
+        .bar {
+            display: flex;
+            gap: rem(35);
+            position: relative;
+
+            &:nth-last-child::after {
+                position: absolute;
+                right: rem(-20);
+                top: rem(1);
+                height: rem(20);
+                width: rem(1);
+                background-color: var(--black-color);
+                opacity: 0.1;
+                content: '';
+            }
+
+            a > i {
+                margin-right: rem(5);
+            }
+        }
+    }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: rem(80);
+
+    .logo {
+        @include breakpoint-down(small) {
+            height: rem(35);
+        }
+        img {
+            height: inherit;
+        }
+    }
+
+    .nav {
+        padding: rem(24) 0;
+
+        @include breakpoint-down(large) {
+            display: none;
+        }
+    }
+
+    .cart {
+        display: flex;
+        align-items: center;
+        gap: rem(25);
+
+        &__icons {
+            display: flex;
+            gap: rem(18);
+
+            a {
+                position: relative;
+                line-height: rem(30);
+
+                i {
+                    font-size: rem(18);
+                    color: var(--normal-color);
+                }
+
+                span {
+                    position: absolute;
+                    top: 0;
+                    right: rem(-15);
+                    height: rem(13);
+                    width: rem(13);
+                    background-color: var(--primary-color);
+                    color: var(--white-color);
+                    font-size: rem(10);
+                    line-height: rem(13);
+                    text-align: center;
+                    font-weight: 700;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        &__price {
+            font-size: rem(14);
+            color: var(--para-color);
+
+            span {
+                color: var(--heading-color-2);
+                font-weight: 700;
+            }
+        }
+    }
+
+    .hamburgerOpen {
+        display: none;
+        font-size: rem(22);
+        color: var(--normal-color);
+        height: rem(35);
+        width: rem(35);
+        line-height: rem(33);
+        text-align: center;
+
+        cursor: pointer;
+
+        @include breakpoint-down(large) {
+            display: block;
+        }
+    }
+}

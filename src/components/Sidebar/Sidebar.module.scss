@@ -1,0 +1,79 @@
+@use '../../sass/util' as *;
+
+.root {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: rem(35);
+    font-size: rem(14);
+
+    h4 {
+        margin-bottom: rem(25);
+    }
+
+    .categories {
+        ul {
+            display: flex;
+            justify-content: start;
+            gap: em(10) em(20);
+
+            li {
+                font-size: inherit;
+                line-height: rem(35);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .colors {
+        .colors__items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: em(10);
+
+            .colors__item {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                font-size: inherit;
+
+                .colors__circle {
+                    display: inline-block;
+                    height: rem(14);
+                    width: rem(14);
+                    margin-right: rem(15);
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .sizes {
+        .sizes__items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: em(10) em(20);
+
+            .sizes__item {
+                padding: 0 em(14);
+                background-color: var(--background);
+                font-size: inherit;
+                line-height: em(35);
+                color: var(--para-color);
+                cursor: pointer;
+            }
+            :global(.active) {
+                color: var(--white-color);
+                background-color: var(--primary-color);
+            }
+        }
+    }
+
+    .latestProducts {
+        display: grid;
+
+        @include breakpoint-down(small) {
+            display: none;
+        }
+    }
+}

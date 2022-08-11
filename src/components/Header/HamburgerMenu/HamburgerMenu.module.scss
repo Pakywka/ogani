@@ -1,0 +1,99 @@
+@use '../../../sass/util' as *;
+
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: rem(30);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    padding: rem(30);
+    background: var(--white-color);
+    z-index: 99;
+    transition: all, 0.6s;
+
+    .cart {
+        display: flex;
+        align-items: center;
+        gap: rem(25);
+
+        &__icons {
+            display: flex;
+            gap: rem(18);
+
+            a {
+                position: relative;
+                line-height: rem(30);
+
+                i {
+                    font-size: rem(18);
+                    color: var(--normal-color);
+                }
+
+                span {
+                    position: absolute;
+                    top: 0;
+                    right: rem(-15);
+                    height: rem(13);
+                    width: rem(13);
+                    background-color: var(--primary-color);
+                    color: var(--white-color);
+                    font-size: rem(10);
+                    line-height: rem(13);
+                    text-align: center;
+                    font-weight: 700;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        &__price {
+            font-size: rem(14);
+            color: var(--para-color);
+
+            span {
+                color: var(--heading-color-2);
+                font-weight: 700;
+            }
+        }
+    }
+
+    .widget {
+        display: flex;
+        align-items: center;
+        gap: rem(20);
+        font-size: rem(14);
+
+        .auth {
+            display: flex;
+            align-items: center;
+            gap: rem(8);
+        }
+    }
+
+    .nav {
+        ul {
+            li {
+                display: inline-grid;
+
+                a {
+                    padding: rem(10) 0;
+                    font-weight: 600;
+                    border-bottom: 1px solid var(--border-1);
+                }
+            }
+        }
+    }
+
+    .contact {
+        display: grid;
+        gap: rem(10);
+        font-size: rem(14);
+
+        i {
+            margin-right: rem(5);
+        }
+    }
+}

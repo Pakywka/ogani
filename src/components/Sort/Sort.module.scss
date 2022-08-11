@@ -1,0 +1,46 @@
+@use '../../sass/util' as *;
+
+.root {
+    position: relative;
+    .label {
+        display: flex;
+        align-items: center;
+        gap: rem(10);
+
+        .selectParametr {
+            color: var(--primary-color);
+            border-bottom: 1px dashed var(--primary-color);
+            cursor: pointer;
+        }
+    }
+    .popup {
+        position: absolute;
+        left: 0;
+        width: rem(160);
+        margin-top: rem(15);
+        padding: rem(10) 0;
+        background-color: var(--white-color);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+        border-radius: rem(10);
+        overflow: hidden;
+        z-index: 1;
+
+        ul {
+            overflow: hidden;
+            li {
+                padding: rem(12) rem(20);
+                cursor: pointer;
+
+                &.active,
+                &:hover {
+                    background-color: rgba(102, 103, 171, 0.05);
+                }
+
+                &.active {
+                    font-weight: bold;
+                    color: var(--primary-color);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@use '../../sass/util' as *;
+
+.latest_product__item {
+    margin-bottom: rem(20);
+    overflow: hidden;
+    display: block;
+
+    &__pic {
+        float: left;
+
+        img {
+            height: rem(110);
+            width: rem(110);
+        }
+    }
+
+    &__text {
+        overflow: hidden;
+        padding-top: rem(10);
+
+        h6 {
+            color: var(--heading-color-2);
+            margin-bottom: rem(8);
+        }
+
+        span {
+            font-size: rem(18);
+            display: block;
+            color: var(--heading-color-2);
+            font-weight: 700;
+        }
+    }
+}

@@ -1,0 +1,129 @@
+@use '../../sass/util' as *;
+
+.root {
+    padding: rem(50) 0;
+
+    .table {
+        margin-bottom: rem(30);
+
+        &__head {
+            display: grid;
+            grid-template-columns: 6fr 1fr 1.5fr 1fr 0.2fr;
+            gap: rem(20);
+            padding-bottom: rem(20);
+            border-bottom: rem(1) solid var(--border);
+
+            @include breakpoint-down(medium) {
+                grid-template-columns: 5fr 1fr 3fr 1fr 0.2fr;
+            }
+
+            h4 {
+                font-size: rem(20);
+
+                &:not(:first-child) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        .cartBtn {
+            display: flex;
+            align-items: center;
+            padding: rem(14) rem(30) rem(12);
+            background-color: var(--background);
+            color: var(--para-color);
+
+            span {
+                padding-right: rem(5);
+            }
+        }
+    }
+
+    .bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: rem(30);
+        margin-top: rem(50);
+
+        @include breakpoint-down(large) {
+            grid-template-columns: 1fr;
+        }
+
+        .continue {
+            .discount {
+                form {
+                    display: flex;
+                    input {
+                        width: rem(255);
+                        height: rem(46);
+                        margin-right: rem(15);
+                        border: rem(1) solid var(--border);
+                        color: var(--transparent-color);
+                        text-align: center;
+
+                        @include breakpoint-down(xlarge) {
+                            width: rem(240);
+                        }
+
+                        &::after {
+                            color: var(--transparent-color);
+                        }
+                    }
+
+                    button {
+                        padding: rem(15) rem(30) rem(11);
+                        font-size: rem(12);
+                        letter-spacing: rem(4);
+                        background: var(--para-color);
+                    }
+                }
+            }
+        }
+        .checkout {
+            padding: rem(20) rem(30) rem(30) rem(30);
+            background-color: var(--background);
+
+            ul {
+                margin-bottom: rem(28);
+
+                li {
+                    padding-bottom: rem(13);
+                    margin-bottom: rem(18);
+                    font-weight: 700;
+                    color: var(--normal-color);
+                    border-bottom: rem(1) solid var(--border);
+                    list-style: none;
+                    overflow: hidden;
+
+                    &:last-child {
+                        padding-bottom: 0;
+                        border-bottom: none;
+                        margin-bottom: 0;
+                    }
+
+                    span {
+                        font-size: rem(18);
+                        color: var(--discount);
+                        float: right;
+                    }
+                }
+            }
+
+            a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        h5 {
+            margin-bottom: rem(25);
+            font-size: rem(20);
+            font-weight: 700;
+            color: var(--normal-color);
+        }
+    }
+}

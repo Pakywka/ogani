@@ -1,0 +1,173 @@
+@use '../../sass/util' as *;
+
+.root {
+    padding: rem(30) 0;
+    .topWrapper {
+        display: flex;
+        gap: rem(30);
+
+        @include breakpoint-down(small) {
+            flex-wrap: wrap;
+        }
+
+        .pic {
+            width: 150%;
+            height: 150%;
+        }
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            &Top {
+                h3 {
+                    color: var(--heading-color-2);
+                    font-weight: 700;
+                    margin-bottom: rem(16);
+                }
+
+                p {
+                    margin-bottom: rem(45);
+                }
+
+                .rating {
+                    font-size: rem(14);
+
+                    i {
+                        margin-right: rem(-2);
+                        color: #edbb0e;
+                    }
+
+                    span {
+                        color: var(--discount);
+                        margin-left: rem(4);
+                    }
+                }
+
+                .price {
+                    font-size: rem(30);
+
+                    font-weight: 600;
+                    margin-bottom: rem(15);
+                }
+
+                .toBuy {
+                    display: flex;
+                    max-height: rem(60);
+                    gap: rem(15);
+
+                    .inputQuantity {
+                        max-width: rem(150);
+                        height: auto;
+                        padding: 0.625rem;
+                        border: 1px solid var(--border-1);
+                    }
+
+                    .btnHeart {
+                        display: inline-block;
+                        font-size: rem(16);
+                        color: var(--para-color);
+                        padding: rem(13) rem(20);
+                        background: var(--background);
+                    }
+                }
+            }
+
+            .shortInfo {
+                padding-top: rem(35);
+                border-top: 1px solid var(--border);
+
+                li {
+                    font-size: rem(16);
+                    color: var(--normal-color);
+                    list-style: none;
+
+                    b {
+                        font-weight: 700;
+                        width: rem(170);
+                        display: inline-block;
+                    }
+
+                    span {
+                        samp {
+                            color: var(--discount);
+                        }
+                    }
+
+                    &.share {
+                        display: flex;
+
+                        a {
+                            color: var(--normal-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .information {
+        padding-top: rem(85);
+
+        .navTabs {
+            display: flex;
+            border-bottom: none;
+            justify-content: center;
+            position: relative;
+
+            &:before,
+            &:after {
+                position: absolute;
+                top: 50%;
+                height: rem(1);
+                width: rem(370);
+                background: var(--border);
+                content: '';
+            }
+
+            &:before {
+                left: 0;
+            }
+
+            &:after {
+                right: 0;
+            }
+
+            li {
+                margin-bottom: 0;
+                margin-right: rem(65);
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                a {
+                    font-size: rem(16);
+                    color: hsl(0, 0%, 60%);
+                    font-weight: 700;
+                    border: none;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                    padding: 0;
+                }
+            }
+        }
+
+        .tabContent {
+            .tabPane {
+                padding-top: rem(44);
+
+                h6 {
+                    font-weight: 700;
+                    color: var(--heading-color);
+                    margin-bottom: rem(26);
+                }
+
+                p {
+                    color: var(--para-color);
+                }
+            }
+        }
+    }
+}
