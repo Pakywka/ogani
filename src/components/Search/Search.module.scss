@@ -50,5 +50,9 @@
         background-color: var(--white-color);
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
         z-index: 999;
+
+        @include breakpoint-down(small) {
+            padding: rem(15);
+        }
     }
 }
