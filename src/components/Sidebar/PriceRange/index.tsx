@@ -42,12 +42,12 @@ export const PriceRangeBlock: React.FC = () => {
             <h4>Price range</h4>
             <div className={styles.sliderWrapper}>
                 <label>{`от ${minValue}`}</label>
-                {/* <Slider
+                <Slider
                     className={styles.slider}
                     value={priceRange.minPrice}
                     marks={marks}
                     onChange={(minPrice) => onChangeMinPrice(minPrice)}
-                /> */}
+                />
                 <label>{`до ${maxValue}`}</label>
                 <Slider
                     className={styles.slider}
