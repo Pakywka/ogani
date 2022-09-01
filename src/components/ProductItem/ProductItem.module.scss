@@ -4,12 +4,15 @@
     .root {
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
+
         width: 100%;
         gap: rem(30);
 
-        .pic {
-            width: rem(120);
-            height: rem(120);
+        .top {
+            .pic {
+                width: rem(120);
+                height: rem(120);
+            }
         }
 
         .text {
@@ -34,14 +37,15 @@
         grid-template-columns: 1fr 4fr 1fr;
         gap: rem(30);
 
-        .pic {
-            width: rem(60);
-            height: rem(60);
+        .top {
+            .pic {
+                width: rem(60);
+                height: rem(60);
+            }
         }
 
         .text {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             width: 100%;
         }
@@ -64,7 +68,7 @@
 
 .root {
     display: grid;
-    max-width: rem(270);
+
     width: 100%;
     gap: rem(15);
     text-align: center;

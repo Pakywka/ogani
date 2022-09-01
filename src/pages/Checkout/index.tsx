@@ -9,6 +9,11 @@ import CartItem from '../Cart/CartItem';
 import { IOption, IShippingFields } from './interface';
 
 import styles from './Checkout.module.scss';
+import { Delivery } from './components/delivery';
+import { Payment } from './components/payment';
+import { Confirmation } from './components/confirmation';
+import { Route, Routes, useLocation, Link } from 'react-router-dom';
+import { CheckoutRoutePath } from './routes/pathes';
 
 const options: IOption[] = [
     { value: 'russia', label: 'Russia' },
@@ -37,9 +42,28 @@ const Checkout: React.FC = () => {
 
     const orderProducts = items.map((item, i) => <li key={i}>{item.name}</li>);
 
+    let location = useLocation();
+
     return (
         <div>
             <Breadcrumb headline="Checkout" />
+            <>
+                <Routes>
+                    <Route path={location + CheckoutRoutePath.Delivery} element={<Delivery />} />
+                    <Route path={location + CheckoutRoutePath.Payment} element={<Payment />} />
+                    <Route
+                        path={location + CheckoutRoutePath.Confirmation}
+                        element={<Confirmation />}
+                    />
+                </Routes>
+                <ul>
+                    <li>
+                        <Link to={`${location}${CheckoutRoutePath.Delivery}`}>Delivery</Link>
+                    </li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </>
             <section className={`${styles.root} spad`}>
                 <div className="container">
                     <div className={styles.couponWrapper}>
