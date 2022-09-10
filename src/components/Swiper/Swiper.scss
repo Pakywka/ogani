@@ -37,6 +37,7 @@
         transform: translateY(-50%);
         color: #1c1c1c;
         border: 1px solid #ebebeb;
+        border-radius: $br-small;
 
         &:after {
             font-size: 12px;

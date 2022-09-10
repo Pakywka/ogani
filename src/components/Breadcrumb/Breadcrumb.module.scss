@@ -11,7 +11,6 @@
         h2 {
             font-size: rem(45);
             font-weight: 900;
-            color: var(--white-color);
         }
 
         .option {
@@ -19,7 +18,6 @@
                 position: relative;
                 margin-right: rem(20);
                 font-weight: 700;
-                color: var(--white-color);
 
                 &:after {
                     content: '';
@@ -28,17 +26,12 @@
                     top: rem(13);
                     height: rem(1);
                     width: rem(10);
-                    background-color: var(--white-color);
                 }
-            }
-            span {
-                color: var(--white-color);
             }
         }
     }
 
     ul {
-        color: var(--white-color);
         display: flex;
         justify-content: center;
         gap: rem(46);

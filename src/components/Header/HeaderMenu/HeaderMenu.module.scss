@@ -1,134 +1,250 @@
 @use '../../../sass/util' as *;
 
-.top {
-    height: rem(47);
-    background-color: var(--background);
-    font-size: rem(14);
+.root {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 18px;
+    .top {
+        display: flex;
+        align-items: center;
+        height: rem(70);
+        font-size: rem(14);
+        @include breakpoint-down(large) {
+            height: 100%;
+        }
+        @include breakpoint-down(large) {
+            flex-direction: column;
+        }
 
-    @include breakpoint-down(large) {
-        display: none;
+        .mobileDelivery {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            height: rem(32);
+            width: 100%;
+            padding: 0 rem(4) 0 rem(15);
+            background-color: var(--primary-color-tp);
+            color: var(--primary-color);
+            font-size: rem(14);
+            font-weight: 700;
+            @include breakpoint-down(medium) {
+                display: flex;
+            }
+        }
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            gap: rem(35);
+            @include breakpoint-down(large) {
+                gap: 0;
+                justify-content: space-between;
+            }
+            @include breakpoint-down(medium) {
+                height: auto;
+                margin-top: rem(10) !important;
+            }
+
+            .logo,
+            .logoSmall {
+                display: flex;
+                align-items: center;
+            }
+            .logo {
+                @include breakpoint-down(xlarge) {
+                    display: none;
+                }
+            }
+            .logoSmall {
+                @include breakpoint(xlarge) {
+                    display: none;
+                }
+                img {
+                    max-width: unset;
+                    width: rem(36);
+                }
+            }
+
+            .searchAndDelivery {
+                display: flex;
+                gap: rem(20);
+                @include breakpoint-down(large) {
+                    gap: rem(12);
+                }
+                .catalog {
+                    display: flex;
+
+                    .searchForm {
+                        display: none;
+                        margin-left: rem(-15);
+                        @include breakpoint(large) {
+                            display: block;
+                        }
+                    }
+                }
+
+                .delivery {
+                    display: none;
+                    align-items: center;
+                    gap: rem(12);
+                    width: rem(280);
+                    height: rem(40);
+                    padding: 0 rem(19) 0 rem(12);
+                    background-color: rgb(238, 248, 237);
+                    color: var(--primary-color);
+                    font-size: rem(12);
+                    border-radius: $br-small;
+                    transition: $transition-opacity;
+                    &:hover {
+                        opacity: $hover-opacity;
+                    }
+                    @include breakpoint(medium) {
+                        display: flex;
+                    }
+                    @include breakpoint-down(large) {
+                        width: rem(270);
+                    }
+                    &Button__icon_wrapper {
+                        display: flex;
+                        align-items: center;
+                    }
+                    &Button__content {
+                        text-align: left;
+                        .deliveryButton__name {
+                            font-weight: 700;
+                            text-align: left;
+                            line-height: rem(14);
+                        }
+                        line-height: rem(14);
+                        .deliveryButton__shopName {
+                            line-height: rem(14);
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+
+            .cart {
+                display: flex;
+                align-items: center;
+                gap: rem(25);
+
+                &__icons {
+                    display: flex;
+
+                    gap: rem(25);
+
+                    .favorite {
+                        @include breakpoint-down(small) {
+                            display: none;
+                        }
+                    }
+
+                    a {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        line-height: 24px;
+
+                        padding: rem(4);
+
+                        .buttonIcon {
+                            line-height: rem(24);
+                        }
+
+                        .iconCount {
+                            position: absolute;
+                            top: 0;
+                            right: rem(-5);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: rem(17);
+                            width: rem(17);
+                            background-color: var(--primary-color);
+                            color: var(--white-color);
+                            font-size: rem(10);
+                            line-height: rem(13);
+                            text-align: center;
+                            font-weight: 700;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                &__price {
+                    font-size: rem(14);
+                    color: var(--para-color);
+
+                    span {
+                        color: var(--heading-color-2);
+                        font-weight: 700;
+                    }
+                }
+            }
+            .burger {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                font-size: rem(22);
+                color: var(--normal-color);
+                height: rem(24);
+                width: rem(24);
+                line-height: rem(33);
+                text-align: center;
+                cursor: pointer;
+                @include breakpoint-down(large) {
+                    display: flex;
+                }
+
+                &__item {
+                    display: inline-block;
+                    width: rem(18);
+                    height: 2px;
+                    background: rgb(80, 185, 70) none repeat scroll 0% 0%;
+                    margin: 1.5px auto;
+                    transition: all 0.3s ease 0s;
+                }
+            }
+        }
     }
 
-    &__wrapper {
+    .bottom {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        height: 100%;
-
-        .contact {
-            display: flex;
-            gap: rem(45);
-
-            i {
-                margin-right: rem(5);
-            }
-        }
-
-        .bar {
-            display: flex;
-            gap: rem(35);
-            position: relative;
-
-            &:nth-last-child::after {
-                position: absolute;
-                right: rem(-20);
-                top: rem(1);
-                height: rem(20);
-                width: rem(1);
-                background-color: var(--black-color);
-                opacity: 0.1;
-                content: '';
-            }
-
-            a > i {
-                margin-right: rem(5);
-            }
-        }
-    }
-}
-
-.wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: rem(80);
-
-    .logo {
-        @include breakpoint-down(small) {
-            height: rem(35);
-        }
-        img {
-            height: inherit;
-        }
-    }
-
-    .nav {
-        padding: rem(24) 0;
-
+        padding: rem(9) unset rem(15);
+        transition: height 0.2s ease 0s, transform 0.2s ease 0s;
+        height: rem(56);
+        width: 100%;
+        z-index: 10;
         @include breakpoint-down(large) {
+            height: 100%;
+            padding: rem(12) 0;
+        }
+
+        .navigationRight {
+            display: flex;
+            gap: rem(22);
+            @include breakpoint-down(large) {
+                display: none;
+            }
+            .navigation_item {
+                display: flex;
+                align-items: center;
+                gap: rem(4);
+                font-weight: 500;
+                transition: opacity 0.2s ease 0s, color 0.2s ease 0s;
+                &:hover {
+                    opacity: 0.75;
+                }
+            }
+        }
+
+        .mobileSearchForm {
             display: none;
-        }
-    }
-
-    .cart {
-        display: flex;
-        align-items: center;
-        gap: rem(25);
-
-        &__icons {
-            display: flex;
-            gap: rem(18);
-
-            a {
-                position: relative;
-                line-height: rem(30);
-
-                i {
-                    font-size: rem(18);
-                    color: var(--normal-color);
-                }
-
-                span {
-                    position: absolute;
-                    top: 0;
-                    right: rem(-15);
-                    height: rem(13);
-                    width: rem(13);
-                    background-color: var(--primary-color);
-                    color: var(--white-color);
-                    font-size: rem(10);
-                    line-height: rem(13);
-                    text-align: center;
-                    font-weight: 700;
-                    border-radius: 50%;
-                }
+            width: 100%;
+            padding: 0 rem(15);
+            @include breakpoint-down(large) {
+                display: block;
             }
-        }
-
-        &__price {
-            font-size: rem(14);
-            color: var(--para-color);
-
-            span {
-                color: var(--heading-color-2);
-                font-weight: 700;
-            }
-        }
-    }
-
-    .hamburgerOpen {
-        display: none;
-        font-size: rem(22);
-        color: var(--normal-color);
-        height: rem(35);
-        width: rem(35);
-        line-height: rem(33);
-        text-align: center;
-
-        cursor: pointer;
-
-        @include breakpoint-down(large) {
-            display: block;
         }
     }
 }

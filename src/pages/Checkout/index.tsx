@@ -1,9 +1,7 @@
 import React from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import ReactSelect from 'react-select';
-import { useSelector } from 'react-redux';
 import { Breadcrumb } from '../../components';
-import { selectCart } from '../../redux/cart/selectors';
 import CheckoutInput from './CheckoutInput';
 import CartItem from '../Cart/CartItem';
 import { IOption, IShippingFields } from './interface';
@@ -14,6 +12,7 @@ import { Payment } from './components/payment';
 import { Confirmation } from './components/confirmation';
 import { Route, Routes, useLocation, Link } from 'react-router-dom';
 import { CheckoutRoutePath } from './routes/pathes';
+import { useAppSelector } from '../../redux/hooks';
 
 const options: IOption[] = [
     { value: 'russia', label: 'Russia' },
@@ -38,7 +37,7 @@ const Checkout: React.FC = () => {
         reset();
     };
 
-    const { totalPrice, items } = useSelector(selectCart);
+    const { totalPrice, items } = useAppSelector((state) => state.cart);
 
     const orderProducts = items.map((item, i) => <li key={i}>{item.name}</li>);
 
@@ -46,7 +45,6 @@ const Checkout: React.FC = () => {
 
     return (
         <div>
-            <Breadcrumb headline="Checkout" />
             <>
                 <Routes>
                     <Route path={location + CheckoutRoutePath.Delivery} element={<Delivery />} />
@@ -56,13 +54,6 @@ const Checkout: React.FC = () => {
                         element={<Confirmation />}
                     />
                 </Routes>
-                <ul>
-                    <li>
-                        <Link to={`${location}${CheckoutRoutePath.Delivery}`}>Delivery</Link>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
             </>
             <section className={`${styles.root} spad`}>
                 <div className="container">

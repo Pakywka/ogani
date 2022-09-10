@@ -1,44 +1,125 @@
 @use '../../sass/util' as *;
 
 .root {
-    padding: rem(50) 0;
-
-    .table {
-        margin-bottom: rem(30);
-
-        &__head {
-            display: grid;
-            grid-template-columns: 6fr 1fr 1.5fr 1fr 0.2fr;
-            gap: rem(20);
-            padding-bottom: rem(20);
-            border-bottom: rem(1) solid var(--border);
-
-            @include breakpoint-down(medium) {
-                grid-template-columns: 5fr 1fr 3fr 1fr 0.2fr;
-            }
-
-            h4 {
-                font-size: rem(20);
-
-                &:not(:first-child) {
-                    text-align: center;
-                }
-            }
-        }
-    }
-
     .buttons {
         display: flex;
         justify-content: space-between;
+        margin-bottom: rem(35);
         .cartBtn {
             display: flex;
             align-items: center;
-            padding: rem(14) rem(30) rem(12);
+            padding: rem(10) rem(20) rem(10);
             background-color: var(--background);
             color: var(--para-color);
 
             span {
                 padding-right: rem(5);
+            }
+        }
+    }
+
+    .rootTitle {
+        font-size: rem(46);
+    }
+
+    .tableAndCheckout {
+        display: grid;
+        grid-template-columns: 7fr 3fr;
+        gap: rem(80);
+        @include breakpoint-down(large) {
+            grid-template-columns: auto;
+            gap: rem(30);
+        }
+        .table {
+            margin-bottom: rem(30);
+        }
+
+        .checkout {
+            height: fit-content;
+            padding: rem(32);
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 18px;
+            border-radius: $br-medium;
+
+            &__top {
+                margin-bottom: rem(50);
+                .checkout__title {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: rem(8);
+
+                    .title__text {
+                        font-weight: 700;
+                        font-size: rem(20);
+                    }
+                }
+
+                .checkout__address {
+                    color: var(--transparent-color);
+                }
+            }
+
+            ul {
+                margin-bottom: rem(28);
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-bottom: rem(8);
+                    margin-bottom: rem(18);
+
+                    border-bottom: rem(1) solid var(--border);
+                    list-style: none;
+                    overflow: hidden;
+
+                    &:last-child {
+                        padding-bottom: 0;
+                        border-bottom: none;
+                        margin-bottom: 0;
+                    }
+
+                    span {
+                        font-size: rem(18);
+                    }
+                    .checkout__total {
+                        font-weight: 700;
+                        font-size: rem(30);
+                    }
+                }
+            }
+
+            a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .empty {
+            display: flex;
+            justify-content: center;
+            gap: rem(80);
+            padding: rem(100) 0;
+            @include breakpoint-down(small) {
+                flex-direction: column;
+                gap: rem(30);
+                padding: rem(40) 0;
+                svg {
+                    width: rem(100);
+                    height: rem(100);
+                }
+            }
+            &__text {
+                display: flex;
+                flex-direction: column;
+                gap: rem(10);
+                .subhead {
+                    font-size: rem(18);
+                    .directToShop {
+                        color: var(--primary-color);
+                    }
+                }
+                a {
+                    width: fit-content;
+                }
             }
         }
     }
@@ -81,41 +162,6 @@
                         background: var(--para-color);
                     }
                 }
-            }
-        }
-        .checkout {
-            padding: rem(20) rem(30) rem(30) rem(30);
-            background-color: var(--background);
-
-            ul {
-                margin-bottom: rem(28);
-
-                li {
-                    padding-bottom: rem(13);
-                    margin-bottom: rem(18);
-                    font-weight: 700;
-                    color: var(--normal-color);
-                    border-bottom: rem(1) solid var(--border);
-                    list-style: none;
-                    overflow: hidden;
-
-                    &:last-child {
-                        padding-bottom: 0;
-                        border-bottom: none;
-                        margin-bottom: 0;
-                    }
-
-                    span {
-                        font-size: rem(18);
-                        color: var(--discount);
-                        float: right;
-                    }
-                }
-            }
-
-            a {
-                width: 100%;
-                text-align: center;
             }
         }
 

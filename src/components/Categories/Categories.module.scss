@@ -21,6 +21,7 @@
             border: 1px solid var(--border);
             cursor: pointer;
             white-space: nowrap;
+            border-radius: $br-small;
 
             &:global(.active) {
                 color: var(--white-color);

@@ -61,6 +61,7 @@
                 line-height: em(35);
                 color: var(--para-color);
                 cursor: pointer;
+                border-radius: $br-small;
             }
             :global(.active) {
                 color: var(--white-color);

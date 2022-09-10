@@ -13,9 +13,9 @@ export const Footer: React.FC = () => {
                                 </a>
                             </div>
                             <ul>
-                                <li>Address: 60-49 Road 11378 New York</li>
-                                <li>Phone: +65 11.188.888</li>
-                                <li>Email: hello@colorlib.com</li>
+                                <li>Address: New York</li>
+                                <li>Phone: +65 00 00 00</li>
+                                <li>Email: crossroads@gmail.com</li>
                             </ul>
                         </div>
                         <div className="footer__widget">

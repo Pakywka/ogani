@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './Languages.module.scss';
 import languageImage from '../../../img/language.png';
-import { useAppDispatch } from '../../../redux/store';
+import { useAppDispatch } from '../../../redux/hooks';
 import { selectLanguage } from '../../../redux/language/selectors';
 import { setLanguage, setOpen } from '../../../redux/language/slice';
 

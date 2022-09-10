@@ -9,32 +9,6 @@
         flex-wrap: wrap;
         justify-content: center;
     }
-
-    .phone {
-        display: flex;
-        gap: rem(20);
-
-        .icon {
-            font-size: rem(18);
-            color: var(--primary-color);
-            height: rem(50);
-            width: rem(50);
-            background-color: var(--background);
-            line-height: rem(50);
-            text-align: center;
-            border-radius: 50%;
-        }
-
-        .text {
-            display: grid;
-            justify-content: space-between;
-
-            span {
-                font-size: rem(14);
-                color: var(--para-color);
-            }
-        }
-    }
 }
 
 .hero {

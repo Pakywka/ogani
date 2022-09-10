@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectCart } from '../../../redux/cart/selectors';
 import { addItem, minusItem, removeItem } from '../../../redux/cart/slice';
 import { CartItem } from '../../../redux/cart/types';
 
@@ -47,17 +46,50 @@ const CartItemBlock: React.FC<CartItemProps> = ({ id, imageSrc, name, price, cou
                     <h6>{name}</h6>
                 </Link>
             </div>
-            <div className={styles.price}>${price}</div>
             <div className={styles.quantity}>
                 <button
                     disabled={count === 1}
                     onClick={onClickMinus}
                     className={`${count === 1 ? 'disabled' : ''} dec qtybtn`}>
-                    -
+                    <span className="button-icon">
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            color="#FFFFFF">
+                            <rect x="2" y="10.75" width="20" height="2.5" rx="1" fill="#fff"></rect>
+                        </svg>
+                    </span>
                 </button>
                 <input type="text" value={count} />
                 <button onClick={onClickPlus} className="inc qtybtn">
-                    +
+                    <span className="button-icon">
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            color="#FFFFFF">
+                            <rect
+                                x="2"
+                                y="10.75"
+                                width="20"
+                                height="2.5"
+                                rx="1"
+                                fill="#FFFFFF"></rect>
+                            <rect
+                                x="13.25"
+                                y="2"
+                                width="20"
+                                height="2.5"
+                                rx="1"
+                                transform="rotate(90 13.25 2)"
+                                fill="#FFFFFF"></rect>
+                        </svg>
+                    </span>
                 </button>
             </div>
             <div className={styles.total}>${total}</div>

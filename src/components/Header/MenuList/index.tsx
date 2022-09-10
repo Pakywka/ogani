@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { setOpen } from '../../../redux/hamburgerMenu/slice';
-import { useAppDispatch } from '../../../redux/store';
+import { useAppDispatch } from '../../../redux/hooks';
 
 import styles from './MenuList.module.scss';
 

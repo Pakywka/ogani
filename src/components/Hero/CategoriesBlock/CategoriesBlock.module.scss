@@ -3,13 +3,19 @@
 .root {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     background-color: var(--primary-color);
     color: var(--white-color);
-    width: rem(270);
-    height: rem(50);
-    padding: rem(10) rem(25) rem(10) rem(40);
+    padding: 0 rem(17) 0 rem(16);
+    height: rem(40);
+    z-index: 2;
+    border-radius: $br-small;
     cursor: pointer;
+    transition: $transition-opacity;
+    &:hover {
+        opacity: $hover-opacity;
+    }
 
     @include breakpoint-down(xlarge) {
         width: rem(210);
@@ -20,24 +26,13 @@
         width: 100%;
         padding: rem(10) rem(25);
     }
-
-    &::after {
-        position: absolute;
-        right: rem(18);
-        top: rem(15);
-        content: '3';
-        font-family: 'ElegantIcons';
-        font-size: rem(18);
-        color: var(--white-color);
-    }
-
-    i {
-        padding-right: rem(10);
-    }
-
     span {
-        font-size: rem(18);
+        font-size: rem(16);
         font-weight: 700;
+    }
+
+    .hover {
+        background-color: gray;
     }
 
     .categoriesList {

@@ -54,11 +54,9 @@ h6 {
 
 p {
     font-size: rem(16);
-    font-family: 'Cairo', sans-serif;
     color: var(--para-color);
     font-weight: 400;
     line-height: rem(26);
-    margin: 0 0 rem(15) 0;
 }
 
 img {
@@ -220,15 +218,20 @@ button {
     font-weight: 700;
     background: var(--primary-color);
     letter-spacing: 2px;
+    border-radius: $br-small;
     @include transition(all, 0.5s);
 
     &:hover {
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+        background-color: var(--primary-color-hover);
     }
 
     &:active {
         background-color: darken(#7fad39, 20%);
     }
+}
+
+.button-icon {
+    display: flex;
 }
 
 .site-btn {

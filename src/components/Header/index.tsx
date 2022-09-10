@@ -6,7 +6,7 @@ import HeaderMenu from './HeaderMenu';
 import HamburgerMenu from './HamburgerMenu';
 import { useSelector } from 'react-redux';
 import { selectMenu } from '../../redux/hamburgerMenu/selectors';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../../redux/hooks';
 import { setOpen } from '../../redux/hamburgerMenu/slice';
 
 export const Header: React.FC = () => {

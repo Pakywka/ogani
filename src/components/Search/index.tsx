@@ -1,20 +1,18 @@
 import React from 'react';
 import debounce from 'lodash.debounce';
-import { useSelector } from 'react-redux';
 
 import styles from './Search.module.scss';
 import { ProductItem } from '..';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../../redux/hooks';
 import SkeletonSearch from './SkeletonSearch';
-import { selectFilter } from '../../redux/filter/selectors';
 import { setSearchValue } from '../../redux/filter/slice';
-import { selectProducts } from '../../redux/products/selectors';
 import { fetchProducts } from '../../redux/products/asyncActions';
+import { useAppSelector } from '../../redux/hooks';
 
 export const Search: React.FC = () => {
     const dispatch = useAppDispatch();
-    const { searchValue } = useSelector(selectFilter);
-    const { items, status } = useSelector(selectProducts);
+    const { searchValue } = useAppSelector((state) => state.filter);
+    const { items, status } = useAppSelector((state) => state.products);
 
     const [open, setOpen] = React.useState(true);
     const [value, setValue] = React.useState<string>('');
@@ -65,7 +63,7 @@ export const Search: React.FC = () => {
     const skeletons = [...new Array(6)].map((_, i: number) => <SkeletonSearch key={i} />);
 
     return (
-        <div className={styles.search} ref={searchRef}>
+        <div className={styles.root} ref={searchRef}>
             <input
                 ref={inputRef}
                 onClick={() => setOpen(true)}
@@ -74,18 +72,38 @@ export const Search: React.FC = () => {
                 type="text"
                 placeholder="What do you need?"
             />
-            <button className={`${styles.searchBtn} primary-btn`}>Search</button>
+            <button className={styles.searchBtn}>
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    color="#50b946"
+                    className="search-form__search-icon">
+                    <path
+                        d="M10.526 3a7.526 7.526 0 017.527 7.526 7.485 7.485 0 01-.7 3.156l3.29 4.429a1.81 1.81 0 01-2.532 2.532l-4.427-3.292a7.488 7.488 0 01-3.158.701 7.526 7.526 0 110-15.052zm0 12.744a5.217 5.217 0 100-10.436 5.218 5.218 0 000 10.436z"
+                        fill="#50b946"></path>
+                </svg>
+            </button>
             {value && (
                 <>
-                    <svg
-                        onClick={onClickClear}
-                        className={styles.clearIcon}
-                        id="Layer_1"
-                        version="1.1"
-                        viewBox="0 0 512 512"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z" />
-                    </svg>
+                    <button onClick={onClickClear} className={styles.clearIcon}>
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            color="#B6BAC2">
+                            <path
+                                d="M5 5l14 14M5 19L19 5"
+                                stroke="#B6BAC2"
+                                stroke-width="3"
+                                stroke-linecap="round"></path>
+                        </svg>
+                    </button>
+
                     {open && (
                         <ul className={`${styles.searchProductItems} search-product-items`}>
                             {status === 'loading' ? skeletons : products}

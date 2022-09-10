@@ -62,8 +62,8 @@ export const ProductItem: React.FC<ProductItemProps> = ({
                 </div>
             </Link>
             <div className={styles.buy}>
-                <h5>${price}.00</h5>
-                <span>{oldPrice ? `$${oldPrice}.00` : ''}</span>
+                <h5>${price}</h5>
+                <span>{oldPrice ? `$${oldPrice}` : ''}</span>
                 <button onClick={() => onClickAdd()} className="primary-btn">
                     Buy
                 </button>

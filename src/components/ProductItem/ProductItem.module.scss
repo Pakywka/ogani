@@ -68,11 +68,10 @@
 
 .root {
     display: grid;
-
     width: 100%;
     gap: rem(15);
     text-align: center;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 
     &:hover {
         transform: scale(1.03);
@@ -91,6 +90,7 @@
             height: rem(270);
             position: relative;
             background-position: center center;
+            border-radius: $br-small;
 
             @include breakpoint-down(small) {
                 height: rem(140);

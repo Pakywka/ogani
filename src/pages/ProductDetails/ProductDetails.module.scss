@@ -170,4 +170,44 @@
             }
         }
     }
+
+    .review_wrapper {
+        display: flex;
+        gap: rem(50);
+        margin-top: rem(80);
+
+        .reviewsInfo {
+            .info__title {
+            }
+        }
+        .reviewList {
+            max-width: rem(570);
+            .reviewList__item {
+                padding: rem(24);
+                background-color: var(--background);
+                border-radius: $br-large;
+                .item__top {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    margin-bottom: rem(16);
+                    .userName {
+                        font-weight: 600;
+                    }
+                    .dateAndRating {
+                        display: flex;
+                        gap: rem(16);
+                        line-height: 1;
+                        .date {
+                            color: var(--transparent-color);
+                        }
+                        .rating {
+                        }
+                    }
+                }
+                .item__text {
+                }
+            }
+        }
+    }
 }

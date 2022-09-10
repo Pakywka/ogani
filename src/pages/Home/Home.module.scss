@@ -11,6 +11,7 @@
         background-image: url('../../img/hero/banner.jpg');
         height: rem(430);
         padding-left: rem(75);
+        border-radius: $br-xlarge;
 
         @include breakpoint-down(small) {
             justify-content: center;
@@ -78,6 +79,7 @@
             height: rem(270);
             background-size: cover;
             background-position-y: center;
+            border-radius: $br-xlarge;
 
             @include breakpoint-down(large) {
                 height: rem(150);

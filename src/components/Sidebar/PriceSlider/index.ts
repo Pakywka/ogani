@@ -3,7 +3,7 @@ import type { HandlesProps } from 'rc-slider/lib/Handles';
 import type { AriaValueFormat } from 'rc-slider/lib/interface';
 import type { MarkObj } from 'rc-slider/lib/Marks';
 import styles from './PriceSlider.module.scss';
-import { PriceRange } from '../../redux/filter/types';
+import { PriceRange } from '../../../redux/filter/types';
 /**
  * New:
  * - click mark to update range value

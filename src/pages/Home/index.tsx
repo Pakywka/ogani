@@ -1,22 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectFilter } from '../../redux/filter/selectors';
-
 import { Skeleton, ProductItem } from '../../components';
 import Categories from '../../components/Categories';
 import styles from './Home.module.scss';
-import { useAppDispatch } from '../../redux/store';
-import { selectProducts } from '../../redux/products/selectors';
+import { useAppDispatch } from '../../redux/hooks';
 import { fetchProducts } from '../../redux/products/asyncActions';
 import BlogItem from '../Blog/BlogItem';
 import { CategorySlider } from './CategorySlider';
+import { OfferDelivery } from './OfferDelivery';
+import { useAppSelector } from '../../redux/hooks';
 
 const Home: React.FC = () => {
     const dispatch = useAppDispatch();
 
-    const { items, status } = useSelector(selectProducts);
-    const { categoryType } = useSelector(selectFilter);
+    const { items, status } = useAppSelector((state) => state.products);
+    const { categoryType } = useAppSelector((state) => state.filter);
 
     React.useEffect(() => {
         const category = categoryType !== 'All' ? categoryType : '';
@@ -45,8 +43,9 @@ const Home: React.FC = () => {
                     </div>
                 </div>
                 <CategorySlider />
+                <OfferDelivery />
                 <section className={styles.featured}>
-                    <h2 className="section-title">Featured Product</h2>
+                    <h2 className="section-title">Recommend to buy</h2>
                     <Categories />
                     <div className={styles.productItems}>
                         {status === 'loading' ? skeletons : products}

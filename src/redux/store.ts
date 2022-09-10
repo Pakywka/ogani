@@ -5,7 +5,6 @@ import cart from './cart/slice';
 import filter from './filter/slice';
 import products from './products/slice';
 import discountProducts from './discountProducts/slice';
-import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
     reducer: {
@@ -20,5 +19,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 
-type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AppDispatch>();
+export type AppDispatch = typeof store.dispatch;

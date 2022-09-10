@@ -2,16 +2,15 @@
 
 .root {
     display: grid;
-    grid-template-columns: 6fr 1fr 1.5fr 1fr 0.2fr;
+    grid-template-columns: 6fr 1fr 1fr 0.2fr;
     position: relative;
     align-items: center;
     gap: rem(20);
-    padding: rem(30) 0;
-    border-bottom: rem(1) solid var(--border);
+    padding: rem(30) 0 0 0;
     text-align: center;
 
     @include breakpoint-down(medium) {
-        grid-template-columns: 5fr 1fr 3fr 1fr 0.2fr;
+        grid-template-columns: 5fr 3fr 1fr 0.2fr;
     }
 
     .product {
@@ -24,6 +23,7 @@
         .productImage {
             width: rem(100);
             height: rem(100);
+            border-radius: $br-small;
         }
 
         h6 {
@@ -37,26 +37,41 @@
     }
 
     .price {
-        font-size: rem(18);
+        font-size: rem(22);
         font-weight: 700;
         color: var(--normal-color);
     }
     .quantity {
-        display: grid;
-        grid-template-columns: 2fr 1fr 2fr;
-
-        height: rem(50);
+        display: flex;
+        justify-content: space-between;
+        padding: rem(3);
         position: relative;
         text-align: center;
         background: var(--background);
+        border-radius: 22px;
 
         input {
-            width: 100%;
+            width: rem(75);
             background-color: var(--background);
             text-align: center;
             font-size: rem(16);
             color: var(--para-color);
             border: none;
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: rem(34);
+            height: rem(34);
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            transition: $transition-bc;
+
+            &:hover {
+                background-color: var(--primary-color-hover);
+            }
         }
     }
     .total {

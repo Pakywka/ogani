@@ -2,6 +2,7 @@
 
 :global .selected {
     background-color: var(--primary-color);
+    border-radius: $br-small;
 
     a {
         color: var(--white-color) !important;
@@ -23,6 +24,7 @@
         text-align: center;
         color: var(--transparent-color);
         border: rem(1) solid var(--border);
+        border-radius: $br-small;
         transition: all, 0.3s;
         cursor: pointer;
 

@@ -125,7 +125,7 @@ export const Sidebar: React.FC = () => {
                 <h4>Popular Size</h4>
                 <div className={styles.sizes__items}>{sizesElements}</div>
             </div>
-            <div className={styles.latestProducts}>
+            {/* <div className={styles.latestProducts}>
                 <h4>Latest Products</h4>
                 <SwiperSlider
                     slidesPerView={5}
@@ -135,7 +135,7 @@ export const Sidebar: React.FC = () => {
                     rows={3}
                     array={latestProductElements}
                 />
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectFilter } from '../redux/filter/selectors';
 import { setViewType } from '../redux/filter/slice';
-import { useAppDispatch } from '../redux/store';
+import { useAppDispatch } from '../redux/hooks';
 
 type OptionType = {
     optionClass: string;

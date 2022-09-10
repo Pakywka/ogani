@@ -5,7 +5,7 @@ import { PriceRange } from '../../../redux/filter/types';
 import { setMaxPrice, setMinPrice } from '../../../redux/filter/slice';
 
 import styles from './PriceRange.module.scss';
-import PriceSlider from '../../PriceSlider';
+import PriceSlider from '../PriceSlider';
 import Slider from 'rc-slider';
 
 const marks = {
