@@ -29,12 +29,15 @@ h1 {
 }
 
 h2 {
-    font-size: rem(36);
-    font-weight: 900;
+    font-size: rem(46);
+    line-height: rem(58);
+    font-weight: 700;
 }
 
 h3 {
-    font-size: rem(30);
+    font-size: rem(38);
+    line-height: rem(48);
+    font-weight: 700;
 }
 
 h4 {
@@ -102,7 +105,6 @@ ol {
     margin-bottom: rem(50);
     text-align: center;
     color: var(--normal-color);
-    font-weight: 900;
     position: relative;
 
     &:after {
@@ -201,6 +203,14 @@ ol {
 
 .disabled {
     opacity: 0.3;
+}
+
+.layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #72ac45;
 }
 
 /* buttons */

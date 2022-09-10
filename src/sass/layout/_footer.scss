@@ -45,7 +45,7 @@
         padding: rem(15) 0;
 
         &__text {
-            font-size: rem(14);
+            font-size: rem(16);
             color: var(--normal-color);
             line-height: rem(25);
         }
@@ -70,14 +70,14 @@
         li {
             a {
                 color: var(--normal-color);
-                font-size: rem(14);
-                line-height: rem(32);
+                font-size: rem(16);
+                line-height: rem(40);
             }
         }
     }
 
     p {
-        font-size: rem(14);
+        font-size: rem(16);
         color: var(--normal-color);
         margin-bottom: rem(30);
     }

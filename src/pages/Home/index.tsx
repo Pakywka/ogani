@@ -45,7 +45,7 @@ const Home: React.FC = () => {
                 <CategorySlider />
                 <OfferDelivery />
                 <section className={styles.featured}>
-                    <h2 className="section-title">Recommend to buy</h2>
+                    <h3 className="section-title">Recommend to buy</h3>
                     <Categories />
                     <div className={styles.productItems}>
                         {status === 'loading' ? skeletons : products}
@@ -56,7 +56,7 @@ const Home: React.FC = () => {
                     <Link to="/shop" className={styles.banner}></Link>
                 </div>
                 <div className={styles.fromBlog}>
-                    <h2 className="section-title">From The Blog</h2>
+                    <h3 className="section-title">From The Blog</h3>
                     <div className={styles.blogItems}>
                         <BlogItem pic="1" headline="Cooking tips make cooking simple" />
                         <BlogItem pic="2" headline="6 ways to prepare breakfast for 30" />

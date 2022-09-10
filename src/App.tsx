@@ -6,6 +6,7 @@ import { NotFound } from './pages/NotFound';
 import { Preloder } from './components/Preloder';
 
 import './sass/style.scss';
+import { Auth, Login } from './pages/Auth';
 
 const Home = React.lazy(() => import(/* webpackChunkName: "Home" */ './pages/Home'));
 const Shop = React.lazy(() => import(/* webpackChunkName: "Shop" */ './pages/Shop'));
@@ -14,6 +15,9 @@ const Cart = React.lazy(() => import(/* webpackChunkName: "Cart" */ './pages/Car
 const Checkout = React.lazy(() => import('./pages/Checkout'));
 const ProductDetails = React.lazy(
     () => import(/* webpackChunkName: "ProductDetails" */ './pages/ProductDetails'),
+);
+const PreLogin = React.lazy(
+    () => import(/* webpackChunkName: "Prelogin" */ './pages/Auth/PreLogin'),
 );
 
 const App = () => {
@@ -63,12 +67,35 @@ const App = () => {
                             </Suspense>
                         }
                     />
-                    {/* <Route path="/blog" element={<Suspense><Blog /></Suspense>} /> */}
                     <Route
                         path="/contact"
                         element={
                             <Suspense fallback={<Preloder />}>
                                 <Contact />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/prelogin"
+                        element={
+                            <Suspense fallback={<Preloder />}>
+                                <PreLogin />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/login"
+                        element={
+                            <Suspense fallback={<Preloder />}>
+                                <Login />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/auth"
+                        element={
+                            <Suspense fallback={<Preloder />}>
+                                <Auth />
                             </Suspense>
                         }
                     />

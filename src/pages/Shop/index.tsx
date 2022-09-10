@@ -113,7 +113,7 @@ const Shop: React.FC = () => {
                 <Sidebar />
                 <div className={styles.content}>
                     <div className={styles.productDiscount}>
-                        <h2 className="section-title">Sale Off</h2>
+                        <h3 className="section-title">Sale Off</h3>
                         {status === 'error' ? (
                             <div>
                                 <h2>Не удалось загрузить продукты</h2>

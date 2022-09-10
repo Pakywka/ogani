@@ -99,7 +99,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
                                     </svg>
                                 </span>
                             </a>
-                            <Link to="">
+                            <Link to="/prelogin">
                                 <span className={`${styles.buttonIcon} button-icon`}>
                                     <svg
                                         width="16"
