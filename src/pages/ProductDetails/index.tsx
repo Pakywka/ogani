@@ -56,7 +56,7 @@ const ProductDetails: React.FC = () => {
                 <div className={styles.topWrapper}>
                     <img
                         className={styles.pic}
-                        src={require(`../../${product.imageSrc}`)}
+                        src={require(`../../assets/${product.imageSrc}`)}
                         alt="Product"
                     />
 
