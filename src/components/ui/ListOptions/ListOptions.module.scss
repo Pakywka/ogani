@@ -1,0 +1,21 @@
+@use '../../../sass/util' as *;
+
+.root {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+
+    button {
+        svg {
+            color: var(--transparent-color);
+            &:hover {
+                color: var(--primary-color);
+            }
+            &:global {
+                &.active {
+                    color: var(--primary-color);
+                }
+            }
+        }
+    }
+}

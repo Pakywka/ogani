@@ -1,0 +1,121 @@
+@use '../../sass/util' as *;
+
+.wrapper {
+    padding-top: 64px;
+    inset: 0px;
+    font-size: 14px;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    width: 1070px;
+    max-width: calc(-32px + 100vw);
+    padding: 18px 0px 24px;
+    padding-top: rem(64);
+    margin: 0px auto;
+
+    .root {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        background-clip: padding-box;
+        border: 0px none;
+        pointer-events: auto;
+        padding: 0px;
+        border-radius: $br-large;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 18px;
+
+        .btnModalHidden {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: medium none;
+            border-radius: 50%;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 18px;
+            background: rgba(120, 124, 135, 0.9) none repeat scroll 0% 0%;
+            cursor: pointer;
+            height: 32px;
+            opacity: 1;
+            outline: currentcolor none medium;
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            transition: opacity 0.2s ease 0s;
+            width: 32px;
+            z-index: 10;
+        }
+        .contentWrapper {
+            display: flex;
+            flex: 0 1 auto;
+            flex-flow: row-reverse wrap;
+            margin-right: -0.5rem;
+            margin-left: -0.5rem;
+
+            .map {
+                flex-basis: 50%;
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                height: rem(560);
+                gap: rem(16);
+                flex-basis: 50%;
+                padding: 32px 32px 32px 42px;
+
+                &__top {
+                    .top_title {
+                        font-size: rem(32);
+                        line-height: rem(40);
+                        font-weight: 700;
+                    }
+                    p {
+                        margin: rem(8) 0 rem(18) 0;
+                        font-size: rem(16);
+                        line-height: rem(26);
+                    }
+                }
+
+                .searchWrapper {
+                    .address_search__label {
+                        margin-bottom: rem(8);
+                        &_text {
+                            font-size: 14px;
+                            line-height: 22px;
+                            color: var(--para-color);
+                        }
+                    }
+                    .address_search {
+                        display: flex;
+                        align-items: center;
+                        font-size: 15px;
+                        background-color: var(--background);
+                        border-radius: $br-small;
+                        color: var(--para-color);
+                        line-height: 19px;
+                        transition: all 0.3s ease 0s;
+                        cursor: pointer;
+
+                        .searchInput {
+                            width: 100%;
+                            padding: 16px;
+                            input {
+                                border: 0px none;
+                                background-color: var(--background);
+                                width: 100%;
+                                font-size: inherit;
+                            }
+                        }
+
+                        .btnSearchClear {
+                            width: rem(44);
+                            height: rem(44);
+
+                            span {
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

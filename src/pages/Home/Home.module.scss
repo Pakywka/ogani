@@ -8,7 +8,7 @@
     .bannerHead {
         display: flex;
         align-items: center;
-        background-image: url('../../img/hero/banner.jpg');
+        background-image: url('../../assets/img/hero/banner.jpg');
         height: rem(430);
         padding-left: rem(75);
         border-radius: $br-xlarge;
@@ -86,10 +86,10 @@
             }
         }
         .banner:first-child {
-            background-image: url('../../img/banner/banner-1.jpg');
+            background-image: url('../../assets/img/banner/banner-1.jpg');
         }
         .banner:nth-child(2) {
-            background-image: url('../../img/banner/banner-2.jpg');
+            background-image: url('../../assets/img/banner/banner-2.jpg');
         }
     }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectFilter } from '../../redux/filter/selectors';
-import { setSortType } from '../../redux/filter/slice';
-import { SortPropertyEnum } from '../../redux/filter/types';
+import { selectFilter } from '../../store/filter/selectors';
+import { setSortType } from '../../store/filter/slice';
+import { SortPropertyEnum } from '../../store/filter/types';
 
 import styles from './Sort.module.scss';
 

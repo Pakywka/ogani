@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilter } from '../../../redux/filter/selectors';
-import { PriceRange } from '../../../redux/filter/types';
-import { setMaxPrice, setMinPrice } from '../../../redux/filter/slice';
+import { selectFilter } from '../../../store/filter/selectors';
+import { PriceRange } from '../../../store/filter/types';
+import { setMaxPrice, setMinPrice } from '../../../store/filter/slice';
 
 import styles from './PriceRange.module.scss';
 import PriceSlider from '../PriceSlider';

@@ -4,23 +4,28 @@ import { Link } from 'react-router-dom';
 import styles from './HeaderMenu.module.scss';
 
 import MenuList from '../MenuList';
-import CategoriesBlock from '../../Hero/CategoriesBlock';
+import CategoriesBlock from '../../CategoriesBlock';
 import { Search } from '../../Search';
-import { useAppSelector } from '../../../redux/hooks';
+import { useAppSelector } from '../../../store/hooks';
+import { DeliveryModal } from '../../DeliveryModal';
+import logo from '../../../assets/img/logo.png';
+import logoSmall from '../../../assets/img/logo-small.png';
 
 type HeaderMenuProps = {
     openMenu: () => void;
 };
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
-    const { items, totalPrice } = useAppSelector((state) => state.cart);
+    const { items } = useAppSelector((state) => state.cart);
+
+    const [show, setShow] = React.useState<boolean>(false);
 
     const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
     return (
         <div className={styles.root}>
             <div className={styles.top}>
-                <div className={styles.mobileDelivery}>
+                <button className={styles.mobileDelivery}>
                     <div className={styles.delivery__text}>Pickup, Hudson yards</div>
                     <svg
                         width="24"
@@ -30,18 +35,18 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
                         xmlns="http://www.w3.org/2000/svg"
                         color="currentColor">
                         <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M8.22 5.24a1 1 0 00.02 1.41l5.4 5.29-5.4 5.28a1 1 0 101.4 1.43l6.12-6a1 1 0 000-1.43l-6.12-6a1 1 0 00-1.42.02z"
                             fill="currentColor"></path>
                     </svg>
-                </div>
+                </button>
                 <div className={`${styles.top__wrapper} container`}>
                     <Link to="/" className={styles.logo}>
-                        <img src="../../../img/logo.png" alt="" />
+                        <img src={logo} alt="Logo" />
                     </Link>
                     <Link to="/" className={styles.logoSmall}>
-                        <img src="../../../img/logo-small.png" alt="" />
+                        <img src={logoSmall} alt="Logo" />
                     </Link>
                     <div className={styles.searchAndDelivery}>
                         <div className={styles.catalog}>
@@ -50,7 +55,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
                                 <Search />
                             </form>
                         </div>
-                        <button className={styles.delivery}>
+                        {show && <DeliveryModal setShow={setShow} />}
+                        <button onClick={() => setShow(true)} className={styles.delivery}>
                             <div className={styles.deliveryButton__icon_wrapper}>
                                 <svg
                                     width="24"
@@ -70,8 +76,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
                                         rx="1.11"
                                         fill="#50b946"></rect>
                                     <path
-                                        fill-rule="evenodd"
-                                        clip-rule="evenodd"
+                                        fillRule="evenodd"
+                                        clipRule="evenodd"
                                         d="M3.22 14.11a1 1 0 011-1H20a1 1 0 011 1V20a2 2 0 01-2 2h-1.33v-5.67a1 1 0 00-1-1h-1.34a1 1 0 00-1 1V22h-9.1a2 2 0 01-2-2v-5.89zm3.34 2.72c0-.83.67-1.5 1.5-1.5H9.5c.83 0 1.5.67 1.5 1.5v1.45c0 .83-.67 1.5-1.5 1.5H8.06a1.5 1.5 0 01-1.5-1.5v-1.45z"
                                         fill="#50b946"></path>
                                 </svg>
@@ -99,7 +105,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
                                     </svg>
                                 </span>
                             </a>
-                            <Link to="/prelogin">
+                            <Link to="/profile">
                                 <span className={`${styles.buttonIcon} button-icon`}>
                                     <svg
                                         width="16"
@@ -152,8 +158,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
                             xmlns="http://www.w3.org/2000/svg"
                             color="#50b946">
                             <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
+                                fillRule="evenodd"
+                                clipRule="evenodd"
                                 d="M19.1837 4.91224L12 4.74976L4.81627 4.91224C3.48511 4.94235 2.35801 5.90297 2.11732 7.21254C1.5356 10.3776 1.5356 13.6223 2.11732 16.7874C2.35801 18.0969 3.48511 19.0575 4.81627 19.0876L12 19.2501L19.1837 19.0876C20.5149 19.0575 21.642 18.0969 21.8827 16.7874C22.4644 13.6223 22.4644 10.3776 21.8827 7.21254C21.642 5.90297 20.5149 4.94235 19.1837 4.91224ZM4.85019 6.41186L12 6.25014L19.1498 6.41186C19.7701 6.42589 20.2952 6.87349 20.4074 7.48369C20.5607 8.31767 20.6711 9.15752 20.7388 9.99994H3.26121C3.32886 9.15752 3.43933 8.31767 3.59261 7.48369C3.70476 6.87349 4.22993 6.42589 4.85019 6.41186ZM3.18103 11.9999C3.18103 13.5116 3.31822 15.0233 3.59261 16.5162C3.70476 17.1264 4.22993 17.574 4.85019 17.588L12 17.7498L19.1498 17.588C19.7701 17.574 20.2952 17.1264 20.4074 16.5162C20.6818 15.0233 20.819 13.5116 20.819 11.9999H3.18103Z"
                                 fill="#50b946"
                             />
@@ -169,8 +175,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
                             xmlns="http://www.w3.org/2000/svg"
                             color="#50b946">
                             <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
+                                fillRule="evenodd"
+                                clipRule="evenodd"
                                 d="M18.5 20.6a2.6 2.6 0 100-5.2 2.6 2.6 0 000 5.2zm0 1.9a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm-13-1.9a2.6 2.6 0 100-5.2 2.6 2.6 0 000 5.2zm0 1.9a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"
                                 fill="#50b946"></path>
                             <rect

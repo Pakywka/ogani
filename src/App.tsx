@@ -1,12 +1,16 @@
 import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header, Footer, Hero } from './components';
-import Blog from './pages/Blog';
-import { NotFound } from './pages/NotFound';
+import { NotFound } from './components/NotFound';
 import { Preloder } from './components/Preloder';
 
 import './sass/style.scss';
-import { Auth, Login } from './pages/Auth';
+import { Auth, Login } from './components/features/auth';
+import { Layout } from './components/Layout';
+import { Profile } from './pages/Profile';
+import { PersonalArea } from './pages/Profile/routes/PersonalArea';
+import { Orders } from './pages/Profile/routes/Orders';
+import { Promocodes } from './pages/Profile/routes/Promocodes';
+import { Settings } from './pages/Profile/routes/Settings';
 
 const Home = React.lazy(() => import(/* webpackChunkName: "Home" */ './pages/Home'));
 const Shop = React.lazy(() => import(/* webpackChunkName: "Shop" */ './pages/Shop'));
@@ -17,18 +21,21 @@ const ProductDetails = React.lazy(
     () => import(/* webpackChunkName: "ProductDetails" */ './pages/ProductDetails'),
 );
 const PreLogin = React.lazy(
-    () => import(/* webpackChunkName: "Prelogin" */ './pages/Auth/PreLogin'),
+    () => import(/* webpackChunkName: "Prelogin" */ './components/features/auth/PreLogin'),
 );
 
 const App = () => {
+    // const token = localStorage.getItem('token');
+
+    // const { data = [] } = useCheckAuthQuery(token || '');
+    // console.log(data);
+
     return (
-        <div className="App">
-            <Header />
-            <Hero />
-            <div className="App__content">
-                <Routes>
+        <>
+            <Routes>
+                <Route path="/" element={<Layout />}>
                     <Route
-                        path="/"
+                        index
                         element={
                             <Suspense fallback={<Preloder />}>
                                 <Home />
@@ -36,7 +43,7 @@ const App = () => {
                         }
                     />
                     <Route
-                        path="/shop"
+                        path="shop"
                         element={
                             <Suspense fallback={<Preloder />}>
                                 <Shop />
@@ -44,7 +51,7 @@ const App = () => {
                         }
                     />
                     <Route
-                        path="/product/:id"
+                        path="product/:id"
                         element={
                             <Suspense fallback={<Preloder />}>
                                 <ProductDetails />
@@ -52,7 +59,7 @@ const App = () => {
                         }
                     />
                     <Route
-                        path="/cart"
+                        path="cart"
                         element={
                             <Suspense fallback={<Preloder />}>
                                 <Cart />
@@ -60,7 +67,7 @@ const App = () => {
                         }
                     />
                     <Route
-                        path="/checkout"
+                        path="checkout"
                         element={
                             <Suspense fallback={<Preloder />}>
                                 <Checkout />
@@ -68,7 +75,7 @@ const App = () => {
                         }
                     />
                     <Route
-                        path="/contact"
+                        path="contact"
                         element={
                             <Suspense fallback={<Preloder />}>
                                 <Contact />
@@ -76,29 +83,19 @@ const App = () => {
                         }
                     />
                     <Route
-                        path="/prelogin"
+                        path="prelogin"
                         element={
                             <Suspense fallback={<Preloder />}>
                                 <PreLogin />
                             </Suspense>
                         }
                     />
-                    <Route
-                        path="/login"
-                        element={
-                            <Suspense fallback={<Preloder />}>
-                                <Login />
-                            </Suspense>
-                        }
-                    />
-                    <Route
-                        path="/auth"
-                        element={
-                            <Suspense fallback={<Preloder />}>
-                                <Auth />
-                            </Suspense>
-                        }
-                    />
+                    <Route path="profile" element={<Profile />}>
+                        <Route index element={<PersonalArea />} />
+                        <Route path="orders" element={<Orders />} />
+                        <Route path="promocodes" element={<Promocodes />} />
+                        <Route path="settings" element={<Settings />} />
+                    </Route>
                     <Route
                         path="*"
                         element={
@@ -107,10 +104,25 @@ const App = () => {
                             </Suspense>
                         }
                     />
-                </Routes>
-            </div>
-            <Footer />
-        </div>
+                </Route>
+                <Route
+                    path="login"
+                    element={
+                        <Suspense fallback={<Preloder />}>
+                            <Login />
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="auth"
+                    element={
+                        <Suspense fallback={<Preloder />}>
+                            <Auth />
+                        </Suspense>
+                    }
+                />
+            </Routes>
+        </>
     );
 };
 

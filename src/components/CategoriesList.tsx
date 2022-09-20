@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectFilter } from '../redux/filter/selectors';
-import { setCategoryType } from '../redux/filter/slice';
+import { selectFilter } from '../store/filter/selectors';
+import { setCategoryType } from '../store/filter/slice';
 
-import styles from './Hero/CategoriesBlock/CategoriesBlock.module.scss';
+import styles from './CategoriesBlock/CategoriesBlock.module.scss';
 
 const categoriesList: string[] = [
     'Fresh Meat',

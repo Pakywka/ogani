@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilter } from '../../redux/filter/selectors';
-import { setCategoryType } from '../../redux/filter/slice';
+import { selectFilter } from '../../store/filter/selectors';
+import { setCategoryType } from '../../store/filter/slice';
 
 import styles from './Categories.module.scss';
 

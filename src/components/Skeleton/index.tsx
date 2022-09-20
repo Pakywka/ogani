@@ -1,12 +1,12 @@
 import ContentLoader from 'react-content-loader';
 import { useSelector } from 'react-redux';
-import { selectFilter } from '../../redux/filter/selectors';
+import { selectFilter } from '../../store/filter/selectors';
 import styles from './Skeleton.module.scss';
 
 export const Skeleton = () => {
     const { viewType } = useSelector(selectFilter);
 
-    if (viewType.itemsClass === 'view-tile') {
+    if (viewType === 'view-tile') {
         return (
             <ContentLoader
                 className={styles.root}
@@ -21,7 +21,7 @@ export const Skeleton = () => {
                 <rect x="102" y="307" rx="0" ry="0" width="60" height="22" />
             </ContentLoader>
         );
-    } else if (viewType.itemsClass === 'view-simple') {
+    } else if (viewType === 'view-simple') {
         return (
             <ContentLoader
                 speed={2}

@@ -23,59 +23,6 @@
 
     .shopList__wrapper {
         margin-top: rem(60);
-        .shopList__title {
-        }
-        .shopList {
-            &__item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-left: -2rem;
-                margin-right: -2rem;
-                padding: rem(20) rem(32);
-                transition: $transition-bc;
-                border-bottom: 1px solid var(--border);
-
-                &:hover {
-                    background-color: var(--background);
-
-                    .addressIcon {
-                        color: var(--primary-color) !important;
-                    }
-                }
-
-                .item__address {
-                    display: flex;
-                    .addressIcon {
-                        color: var(--transparent-color);
-                        transition: $transition-color;
-                    }
-                    .item__text {
-                        display: flex;
-                        flex-direction: column;
-                        margin-left: rem(4);
-
-                        .shopName {
-                            font-weight: 700;
-                        }
-                        .shopAddress {
-                            line-height: rem(16);
-                        }
-                    }
-                }
-
-                .item__time {
-                    display: flex;
-                    align-items: center;
-                    span {
-                        font-size: rem(14);
-                        line-height: rem(22);
-                        max-width: rem(160);
-                        margin-left: rem(8);
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -83,6 +30,8 @@
     .map {
         height: rem(700);
         position: relative;
+        width: 100vw;
+        margin: 0 -59.5%;
 
         iframe {
             width: 100%;

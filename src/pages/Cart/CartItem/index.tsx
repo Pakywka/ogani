@@ -1,8 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addItem, minusItem, removeItem } from '../../../redux/cart/slice';
-import { CartItem } from '../../../redux/cart/types';
+import { addItem, minusItem, removeItem } from '../../../store/cart/slice';
+import { CartItem } from '../../../store/cart/types';
 
 import styles from './CartItem.module.scss';
 
@@ -40,7 +40,11 @@ const CartItemBlock: React.FC<CartItemProps> = ({ id, imageSrc, name, price, cou
         <div className={styles.root}>
             <div className={styles.product}>
                 <Link to={`/product/${id}`}>
-                    <img className={styles.productImage} src={imageSrc} alt="" />
+                    <img
+                        className={styles.productImage}
+                        src={require(`../../../assets/${imageSrc}`)}
+                        alt=""
+                    />
                 </Link>
                 <Link to={`/product/${id}`}>
                     <h6>{name}</h6>

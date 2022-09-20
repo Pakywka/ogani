@@ -1,0 +1,139 @@
+@use '../util/' as *;
+
+.footer {
+    background: var(--background);
+    padding-top: rem(70);
+    padding-bottom: 0;
+
+    @include breakpoint-down(large) {
+        text-align: center;
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: rem(30);
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: rem(30);
+
+        @include breakpoint-down(large) {
+            justify-content: center;
+        }
+    }
+
+    &__widget {
+        .lists-wrapper {
+            display: flex;
+            gap: rem(30);
+        }
+    }
+
+    &__about {
+        ul {
+            li {
+                line-height: rem(36);
+            }
+        }
+    }
+
+    .footer__copyright {
+        border-top: 1px solid var(--border);
+        padding: rem(15) 0;
+
+        &__text {
+            font-size: rem(16);
+            color: var(--normal-color);
+            line-height: rem(25);
+        }
+
+        &__payment {
+            display: flex;
+            gap: rem(18);
+        }
+    }
+}
+
+.footer__about__logo {
+    margin-bottom: rem(15);
+}
+
+.footer__widget {
+    h6 {
+        color: var(--normal-color);
+        font-weight: 700;
+        margin-bottom: rem(10);
+    }
+
+    ul {
+        li {
+            a {
+                color: var(--normal-color);
+                font-size: rem(16);
+                line-height: rem(40);
+            }
+        }
+    }
+
+    p {
+        font-size: rem(16);
+        color: var(--normal-color);
+        margin-bottom: rem(30);
+    }
+
+    form {
+        position: relative;
+        margin-bottom: rem(30);
+
+        input {
+            width: 100%;
+            font-size: rem(16);
+            padding-left: rem(20);
+            color: var(--normal-color);
+            height: rem(46);
+            border: 1px solid var(--border);
+
+            &::placeholder {
+                color: var(--normal-color);
+            }
+        }
+
+        button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 0 rem(26);
+            height: 100%;
+        }
+    }
+
+    .footer__widget__social {
+        display: flex;
+        a {
+            height: rem(41);
+            width: rem(41);
+            font-size: rem(16);
+            color: hsl(0, 0%, 25%);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            line-height: rem(38);
+            text-align: center;
+            background: var(--white-color);
+            @include transition(all, 0.3s);
+            margin-right: rem(10);
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                background: var(--primary-color);
+                color: var(--white-color);
+                border-color: var(--white-color);
+            }
+        }
+    }
+}

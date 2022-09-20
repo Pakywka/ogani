@@ -1,0 +1,46 @@
+@use '../../sass/util' as *;
+
+.item {
+    position: relative;
+    max-width: rem(270);
+    width: 100%;
+    @include breakpoint-down(small) {
+        max-width: rem(140);
+    }
+
+    .pic {
+        height: rem(270);
+        border-radius: $br-small;
+        @include breakpoint-down(small) {
+            max-height: rem(140);
+        }
+    }
+
+    .text {
+        position: absolute;
+        left: 0;
+        bottom: rem(20);
+        width: 100%;
+        padding: 0 rem(20);
+        border-radius: $br-small;
+
+        h5 {
+            padding: rem(12) rem(10);
+            font-size: rem(18);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background-color: var(--white-color);
+
+            @include breakpoint-down(small) {
+                font-size: rem(12);
+                word-break: break-word;
+            }
+        }
+    }
+}
+
+.root {
+    display: grid;
+    position: relative;
+}

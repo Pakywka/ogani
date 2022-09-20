@@ -3,12 +3,16 @@
 :global(.view-simple) {
     .root {
         display: grid;
-        grid-template-columns: 1fr 4fr 1fr;
-
+        grid-template-columns: 1fr 5fr;
         width: 100%;
         gap: rem(30);
 
         .top {
+            width: rem(120);
+            .like {
+                top: rem(5);
+                right: rem(5);
+            }
             .pic {
                 width: rem(120);
                 height: rem(120);
@@ -34,7 +38,7 @@
 :global(.search-product-items) {
     .root {
         display: grid;
-        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-columns: 1fr 5fr;
         gap: rem(30);
 
         .top {
@@ -86,6 +90,13 @@
         position: relative;
         overflow: hidden;
 
+        .like {
+            position: absolute;
+            top: rem(15);
+            right: rem(15);
+            z-index: 5;
+        }
+
         .pic {
             height: rem(270);
             position: relative;
@@ -98,39 +109,41 @@
         }
     }
 
-    .text {
-        .categoryName {
-            font-size: rem(14);
-            color: var(--transparent-color);
-        }
-        .productName {
-            font-weight: 400;
-            a {
-                color: var(--heading-color-2);
-            }
-        }
-    }
-    .buy {
+    .bottom {
         display: flex;
-        justify-content: center;
-        gap: rem(10);
-
-        line-height: 1;
-
-        h5 {
-            color: var(--heading-color-2);
-            font-weight: 800;
-        }
-
-        span {
-            font-size: rem(14);
-            color: var(--transparent-color);
-            text-decoration: line-through;
-            align-self: flex-end;
+        justify-content: space-between;
+        .text {
+            text-align: left;
+            .categoryName {
+                font-size: rem(14);
+                color: var(--transparent-color);
+            }
+            .productName {
+                font-weight: 400;
+                a {
+                    color: var(--heading-color-2);
+                }
+            }
+            .priceWrapper {
+                display: flex;
+                align-items: flex-start;
+                gap: rem(8);
+                .price {
+                    color: var(--heading-color-2);
+                    font-weight: 800;
+                }
+                .oldPrice {
+                    font-size: rem(14);
+                    line-height: rem(14);
+                    color: var(--transparent-color);
+                    text-decoration: line-through;
+                    align-self: flex-end;
+                }
+            }
         }
 
         button {
-            display: none;
+            height: fit-content;
         }
     }
 }

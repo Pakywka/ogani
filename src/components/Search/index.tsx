@@ -3,11 +3,11 @@ import debounce from 'lodash.debounce';
 
 import styles from './Search.module.scss';
 import { ProductItem } from '..';
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch } from '../../store/hooks';
 import SkeletonSearch from './SkeletonSearch';
-import { setSearchValue } from '../../redux/filter/slice';
-import { fetchProducts } from '../../redux/products/asyncActions';
-import { useAppSelector } from '../../redux/hooks';
+import { setSearchValue } from '../../store/filter/slice';
+import { fetchProducts } from '../../store/products/asyncActions';
+import { useAppSelector } from '../../store/hooks';
 
 export const Search: React.FC = () => {
     const dispatch = useAppDispatch();

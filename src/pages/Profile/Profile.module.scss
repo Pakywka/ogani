@@ -1,0 +1,7 @@
+@use '../../sass/util' as *;
+
+.root {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    padding-bottom: rem(44);
+}

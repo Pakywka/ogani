@@ -57,7 +57,6 @@ h6 {
 
 p {
     font-size: rem(16);
-    color: var(--para-color);
     font-weight: 400;
     line-height: rem(26);
 }
@@ -120,7 +119,7 @@ ol {
     }
 }
 
-.App__content {
+main {
     margin: rem(50) 0;
 }
 
@@ -205,6 +204,15 @@ ol {
     opacity: 0.3;
 }
 
+.modal-wrapper {
+    display: block;
+    position: fixed;
+    inset: 0px;
+    overflow: auto;
+    outline: currentcolor none 0px;
+    z-index: 10000;
+}
+
 .layout {
     display: flex;
     justify-content: center;
@@ -242,6 +250,9 @@ button {
 
 .button-icon {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(4);
 }
 
 .site-btn {

@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Breadcrumb } from '../../components';
 import SocialList from '../../components/Header/SocialList';
 import { Preloder } from '../../components/Preloder';
-import { addItem } from '../../redux/cart/slice';
-import { useAppDispatch } from '../../redux/hooks';
+import { addItem } from '../../store/cart/slice';
+import { useAppDispatch } from '../../store/hooks';
 
 import styles from './ProductDetails.module.scss';
 

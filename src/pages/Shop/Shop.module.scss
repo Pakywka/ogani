@@ -69,27 +69,6 @@
                         color: var(--transparent-color);
                     }
                 }
-                &__option {
-                    display: flex;
-                    gap: rem(10);
-
-                    :global {
-                        .view-btn {
-                            font-size: rem(24);
-                            color: var(--transparent-color);
-                            cursor: pointer;
-                            transition: all, 0.3s;
-
-                            &:hover {
-                                color: var(--primary-color);
-                            }
-
-                            &.active {
-                                color: var(--primary-color);
-                            }
-                        }
-                    }
-                }
             }
             .productItems.view-simple {
                 grid-template-columns: 1fr;

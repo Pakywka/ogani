@@ -2,13 +2,12 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { LatestProductItem } from '..';
 import Categories from '../Categories';
-import { selectFilter } from '../../redux/filter/selectors';
-import { setColorType, setSizeType } from '../../redux/filter/slice';
+import { selectFilter } from '../../store/filter/selectors';
+import { setColorType, setSizeType } from '../../store/filter/slice';
 import { colorType, LatestProduct } from './types';
 import { PriceRangeBlock } from './PriceRange';
 
 import styles from './Sidebar.module.scss';
-import { SwiperSlider } from '../Swiper';
 
 export const colorsData: colorType[] = [
     {

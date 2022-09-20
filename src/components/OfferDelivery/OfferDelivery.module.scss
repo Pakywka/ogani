@@ -1,0 +1,64 @@
+@use '../../sass/util' as *;
+
+.root {
+    display: flex;
+    align-items: center;
+    gap: rem(25);
+    padding: rem(24) rem(32);
+    border: 1px solid var(--border);
+    border-radius: $br-xlarge;
+    background-image: url('../../assets/img/offer-background.webp');
+    background-size: rem(250);
+    background-position: right;
+    background-repeat: no-repeat;
+    @include breakpoint-down(medium) {
+        flex-direction: column;
+    }
+
+    .offerText {
+        max-width: rem(360);
+        font-size: rem(20);
+        font-weight: 700;
+        color: var(--black-color);
+        text-align: left;
+    }
+
+    ul {
+        display: flex;
+        gap: rem(8);
+        li {
+            .item {
+                display: flex;
+                align-items: center;
+                height: rem(48);
+                padding: rem(12) rem(16);
+                gap: rem(8);
+                background-color: var(--background);
+                border-radius: $br-xlarge;
+                transition: $transition-bc;
+
+                &:hover {
+                    background-color: rgb(238, 248, 237);
+                }
+
+                &__content {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+
+                    .metodName {
+                        font-weight: 700;
+                        font-size: rem(14);
+                        line-height: rem(18);
+                    }
+                    .metodSubtitle {
+                        font-weight: 600;
+                        line-height: rem(16);
+                        font-size: rem(12);
+                        color: var(--para-color);
+                    }
+                }
+            }
+        }
+    }
+}

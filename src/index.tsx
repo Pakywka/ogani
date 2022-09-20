@@ -3,10 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { store } from './redux/store';
-import './css/font-awesome.min.css';
-import './css/elegant-icons.css';
-import './css/nice-select.css';
+import { store } from './store/store';
 
 import App from './App';
 

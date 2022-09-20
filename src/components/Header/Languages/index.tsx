@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './Languages.module.scss';
-import languageImage from '../../../img/language.png';
-import { useAppDispatch } from '../../../redux/hooks';
-import { selectLanguage } from '../../../redux/language/selectors';
-import { setLanguage, setOpen } from '../../../redux/language/slice';
+import languageImage from '../../../assets/img/language.png';
+import { useAppDispatch } from '../../../store/hooks';
+import { selectLanguage } from '../../../store/language/selectors';
+import { setLanguage, setOpen } from '../../../store/language/slice';
 
 const listLanguages: string[] = ['English', 'Spanish', 'Germany'];
 
