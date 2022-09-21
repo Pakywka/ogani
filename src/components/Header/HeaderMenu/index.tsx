@@ -19,6 +19,14 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
     const { items } = useAppSelector((state) => state.cart);
 
     const [show, setShow] = React.useState<boolean>(false);
+    const showModal = async () => {
+        setShow(!show);
+        if (!show) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'visible';
+        }
+    };
 
     const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
@@ -55,8 +63,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ openMenu }) => {
                                 <Search />
                             </form>
                         </div>
-                        {show && <DeliveryModal setShow={setShow} />}
-                        <button onClick={() => setShow(true)} className={styles.delivery}>
+                        {show && <DeliveryModal showModal={showModal} />}
+                        <button onClick={showModal} className={styles.delivery}>
                             <div className={styles.deliveryButton__icon_wrapper}>
                                 <svg
                                     width="24"

@@ -3,10 +3,10 @@ import { ModalOverlay } from '../ModalOverlay';
 import styles from './DeliveryModal.module.scss';
 
 type DeliveryModalProps = {
-    setShow: any;
+    showModal: any;
 };
 
-export const DeliveryModal: FC<DeliveryModalProps> = ({ setShow }) => {
+export const DeliveryModal: FC<DeliveryModalProps> = ({ showModal }) => {
     const [value, setValue] = React.useState<string>('');
 
     const inputRef = React.useRef<HTMLInputElement>(null);
@@ -24,7 +24,7 @@ export const DeliveryModal: FC<DeliveryModalProps> = ({ setShow }) => {
             <div className="modal-wrapper">
                 <div className={styles.wrapper}>
                     <div className={styles.root}>
-                        <button onClick={() => setShow(false)} className={styles.btnModalHidden}>
+                        <button onClick={showModal} className={styles.btnModalHidden}>
                             <svg
                                 width="18"
                                 height="18"

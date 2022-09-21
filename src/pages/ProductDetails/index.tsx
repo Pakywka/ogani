@@ -4,11 +4,12 @@ import { useParams } from 'react-router-dom';
 import SocialList from '../../components/Header/SocialList';
 import { Preloder } from '../../components/Preloder';
 import { addItem } from '../../store/cart/slice';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 import styles from './ProductDetails.module.scss';
 
 const ProductDetails: React.FC = () => {
+    const items = useAppSelector((state) => state.cart.items);
     const dispatch = useAppDispatch();
     const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -44,6 +45,9 @@ const ProductDetails: React.FC = () => {
     const onClickAdd = () => {
         if (product) {
             dispatch(addItem(product));
+        }
+
+        if (items.find((obj) => obj.id === product?.id)) {
         }
     };
 
@@ -82,13 +86,24 @@ const ProductDetails: React.FC = () => {
                             <div className={styles.toBuy}>
                                 <input
                                     ref={inputRef}
-                                    // onChange={updateCount}
                                     className={styles.inputQuantity}
                                     type="text"
                                     value={product.count}
                                 />
                                 <button className={styles.btnHeart}>
-                                    <span className="icon_heart_alt"></span>
+                                    <span className="button-icon">
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            color="hsl(0, 0%, 100%)">
+                                            <path
+                                                d="M19.1 7.25a5.06 5.06 0 00-4.96-4.75c-1.73 0-3.25.98-4.14 2.38A4.97 4.97 0 005.86 2.5 5.05 5.05 0 00.9 7.25c-.82 4.7 6.02 8.5 9.1 11.08 3.09-2.58 9.9-6.37 9.1-11.08z"
+                                                fill="hsl(0, 0%, 100%)"></path>
+                                        </svg>
+                                    </span>
                                 </button>
                                 <button
                                     onClick={onClickAdd}
@@ -181,7 +196,7 @@ const ProductDetails: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.review_wrapper}>
+                <div className={styles.review_wrapper} id="tabs-3">
                     <div className={styles.reviesInfo}>
                         <h3 className={styles.info__titile}>Reviews</h3>
                     </div>
